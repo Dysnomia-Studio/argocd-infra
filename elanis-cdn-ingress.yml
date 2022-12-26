@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: elanis-cdn
+
+spec:
+  stripPrefix:
+    prefixes:
+      - /cdn
+  
+  rules:
+    - host: kubernetest.dysnomia.studio
+      http:
+        paths:
+          - path: /cdn
+            pathType: Prefix
+            backend:
+              service:
+                name: elanis-cdn
+                port:
+                  number: 80
