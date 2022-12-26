@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elanis-cdn
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: elanis-cdn
+  template:
+    metadata:
+      labels:
+        app: elanis-cdn
+    spec:
+      containers:
+      - image: ghcr.io/elanis/elanis-cdn:main
+        name: elanis-cdn
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: github
