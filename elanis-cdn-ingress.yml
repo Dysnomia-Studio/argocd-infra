@@ -1,29 +1,16 @@
 apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
+kind: IngressRoute
 metadata:
-  name: strip-elanis-cdn-prefix
-  namespace: dysnomia-apps
-spec:
-  stripPrefix:
-    prefixes:
-      - /cdn
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: elanis-cdn
-  annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: dysnomia-apps-strip-elanis-cdn-prefix@kubernetescrd
+  name: elanis-cdn-ingressroute
 
 spec:
-  rules:
-    - host: kubernetest.dysnomia.studio
-      http:
-        paths:
-          - path: /cdn
-            pathType: Prefix
-            backend:
-              service:
-                name: elanis-cdn
-                port:
-                  number: 80
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`kubernetest.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: elanis-cdn-svc
+      port: 80
+    tls:
+      certResolver: le
