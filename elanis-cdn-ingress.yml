@@ -12,5 +12,5 @@ spec:
     services:
     - name: elanis-cdn-svc
       port: 80
-    tls:
-      certResolver: le
+  tls:
+    certResolver: le
