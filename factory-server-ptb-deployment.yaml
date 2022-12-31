@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: factory-server-ptb
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: factory-server-ptb
+  template:
+    metadata:
+      labels:
+        app: factory-server-ptb
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/factory-game-server:develop
+        name: factory-server-ptb
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: github
