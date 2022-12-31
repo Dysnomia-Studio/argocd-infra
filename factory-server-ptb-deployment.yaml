@@ -18,5 +18,6 @@ spec:
         name: factory-server-ptb
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
       imagePullSecrets:
       - name: github
