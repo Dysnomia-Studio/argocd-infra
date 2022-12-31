@@ -19,5 +19,44 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        env:
+          - name: PUBLISHER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: steam-dk7b8k7856
+                key: dysnomia-publisher-key
+                optional: false
+          - name: APP_ID
+            valueFrom:
+              secretKeyRef:
+                name: steam-dk7b8k7856
+                key: factory-appid
+                optional: false
+
+          - name: PG_USER
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-5997g5fgc2
+                key: username
+                optional: false
+          - name: PG_HOST
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-5997g5fgc2
+                key: hostname
+                optional: false
+          - name: PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-5997g5fgc2
+                key: database
+                optional: false
+          - name: PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-5997g5fgc2
+                key: password
+                optional: false
+
       imagePullSecrets:
       - name: github
