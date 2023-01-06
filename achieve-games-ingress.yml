@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`achieve.games`)
+  - match: Host(`achieve.games`) || Host(`www.achieve.games`)
     kind: Rule
     services:
     - name: achieve-games-svc
