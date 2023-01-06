@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`kubernetest.dysnomia.studio`)
+  - match: Host(`01.cdn.elanis.eu`)
     kind: Rule
     services:
     - name: elanis-cdn-svc
