@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: achieve-games
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: achieve-games
+  template:
+    metadata:
+      labels:
+        app: achieve-games
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/achieve-games:main
+        name: achieve-games
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: github

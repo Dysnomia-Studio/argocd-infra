@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: achieve-games-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`achieve.games`)
+    kind: Rule
+    services:
+    - name: achieve-games-svc
+      port: 80
+  tls:
+    certResolver: le
