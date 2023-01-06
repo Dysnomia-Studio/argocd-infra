@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: factory-server-prod-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`prd.manufacturinc.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: factory-server-prod-svc
+      port: 80
+  tls:
+    certResolver: le

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: factory-server-prod-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: factory-server-prod
