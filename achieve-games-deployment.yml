@@ -18,5 +18,58 @@ spec:
         name: achieve-games
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: AppSettings__SteamAPIPublisherToken
+            valueFrom:
+              secretKeyRef:
+                name: steam-6t2tdd4h74
+                key: dysnomia-publisher-key
+                optional: false
+          - name: AppSettings__SteamWebAPIToken
+            valueFrom:
+              secretKeyRef:
+                name: steam-6t2tdd4h74
+                key: elanis-webapi-key
+                optional: false
+
+          - name: AppSettings__ConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-6f5879b468
+                key: database
+                optional: false
+          - name: AppSettings__RedirectURI
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-6f5879b468
+                key: redirecturi
+                optional: false
+          - name: AppSettings__GithubToken
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-6f5879b468
+                key: githubtoken
+                optional: false
+          - name: AppSettings__DiscordToken
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-6f5879b468
+                key: discordToken
+                optional: false
+
+          - name: AppSettings__BattleNetClientId
+            valueFrom:
+              secretKeyRef:
+                name: battlenet-29k8ckd5g2
+                key: clientid
+                optional: false
+          - name: AppSettings__BattleNetClientSecret
+            valueFrom:
+              secretKeyRef:
+                name: battlenet-29k8ckd5g2
+                key: clientsecret
+                optional: false
+
       imagePullSecrets:
       - name: github
