@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: downstatus-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`downstat.us`) || Host(`www.downstat.us`)
+    kind: Rule
+    services:
+    - name: downstatus-svc
+      port: 80
+  tls:
+    certResolver: le

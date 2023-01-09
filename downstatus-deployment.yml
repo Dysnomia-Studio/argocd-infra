@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: downstatus
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: downstatus
+  template:
+    metadata:
+      labels:
+        app: downstatus
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/downstatus:main
+        name: downstatus
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: AppSettings__ConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: downstatus-hbk6675229
+                key: database
+                optional: false
+      imagePullSecrets:
+      - name: github
