@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alchemistry-leaderboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: alchemistry-leaderboard
+  template:
+    metadata:
+      labels:
+        app: alchemistry-leaderboard
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/alchemistry-leaderboard:main
+        name: alchemistry-leaderboard
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: AppSettings__PUBLISHER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: steam-6t2tdd4h74
+                key: dysnomia-publisher-key
+                optional: false
+      imagePullSecrets:
+      - name: github

@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: alchemistry-leaderboard-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`alchemistry-leaderboard.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: alchemistry-leaderboard-svc
+      port: 80
+  tls:
+    certResolver: le
