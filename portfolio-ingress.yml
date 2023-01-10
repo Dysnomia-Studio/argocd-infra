@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: portfolio-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`elanis.eu`) || Host(`elanis.fr`) || Host(`www.elanis.eu`) || Host(`www.elanis.fr`)
+    kind: Rule
+    services:
+    - name: portfolio-svc
+      port: 80
+  tls:
+    certResolver: le
