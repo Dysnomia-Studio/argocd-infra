@@ -23,13 +23,13 @@ spec:
           - name: PUBLISHER_KEY
             valueFrom:
               secretKeyRef:
-                name: steam-6t2tdd4h74
+                name: steam-hdcdk47mmg
                 key: dysnomia-publisher-key
                 optional: false
           - name: APP_ID
             valueFrom:
               secretKeyRef:
-                name: steam-6t2tdd4h74
+                name: steam-hdcdk47mmg
                 key: factory-appid
                 optional: false
 

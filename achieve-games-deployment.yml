@@ -23,13 +23,13 @@ spec:
           - name: AppSettings__SteamAPIPublisherToken
             valueFrom:
               secretKeyRef:
-                name: steam-6t2tdd4h74
+                name: steam-hdcdk47mmg
                 key: dysnomia-publisher-key
                 optional: false
           - name: AppSettings__SteamWebAPIToken
             valueFrom:
               secretKeyRef:
-                name: steam-6t2tdd4h74
+                name: steam-hdcdk47mmg
                 key: elanis-webapi-key
                 optional: false
 
