@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gaspar
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: gaspar
+  template:
+    metadata:
+      labels:
+        app: gaspar
+    spec:
+      containers:
+      - image: ghcr.io/elanis/gaspar:main
+        name: gaspar
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: AppSettings__ConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: gaspar-49t9f58bmk
+                key: database
+                optional: false
+      imagePullSecrets:
+      - name: github

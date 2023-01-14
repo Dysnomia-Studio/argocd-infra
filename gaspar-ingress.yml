@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gaspar-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`gaspar.ovh`) || Host(`www.gaspar.ovh`)
+    kind: Rule
+    services:
+    - name: gaspar-svc
+      port: 80
+  tls:
+    certResolver: le
