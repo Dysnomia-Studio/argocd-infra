@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgwatch
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pgwatch
+  template:
+    metadata:
+      labels:
+        app: pgwatch
+    spec:
+      containers:
+      - image: cybertec/pgwatch2
+        name: pgwatch
+        ports:
+        - containerPort: 9000
+        imagePullPolicy: Always
+        env:
+          - name: PW2_TESTDB
+            value: "false"
+          - name: PW2_PGHOST
+            valueFrom:
+              secretKeyRef:
+                name: pgwatch2-k9t96bk586
+                key: hostname
+                optional: false
+          - name: PW2_PGPORT
+            value: "5432"
+          - name: PW2_PGDATABASE
+            valueFrom:
+              secretKeyRef:
+                name: pgwatch2-k9t96bk586
+                key: database
+                optional: false
+          - name: PW2_PGUSER
+            valueFrom:
+              secretKeyRef:
+                name: pgwatch2-k9t96bk586
+                key: username
+                optional: false
+          - name: PW2_PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pgwatch2-k9t96bk586
+                key: password
+                optional: false
+      imagePullSecrets:
+      - name: github
