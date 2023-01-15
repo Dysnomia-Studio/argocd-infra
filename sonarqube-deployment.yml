@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarqube
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: sonarqube
+  template:
+    metadata:
+      labels:
+        app: sonarqube
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/sonarqube:main
+        name: sonarqube
+        ports:
+        - containerPort: 9000
+        imagePullPolicy: Always
+        env:
+          - name: SONAR_JDBC_URL
+            valueFrom:
+              secretKeyRef:
+                name: sonarqube-672k55668d
+                key: url
+                optional: false
+          - name: SONAR_JDBC_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: sonarqube-672k55668d
+                key: username
+                optional: false
+          - name: SONAR_JDBC_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sonarqube-672k55668d
+                key: password
+                optional: false
+          - name: SONAR_WEB_JAVAADDITIONALOPTS 
+            value: -javaagent:/opt/sonarqube/extensions/sonarqube-community-branch-plugin-1.14.0.jar=web
+          - name: SONAR_CE_JAVAADDITIONALOPTS 
+            value: -javaagent:/opt/sonarqube/extensions/sonarqube-community-branch-plugin-1.14.0.jar=ce
+      imagePullSecrets:
+      - name: github
