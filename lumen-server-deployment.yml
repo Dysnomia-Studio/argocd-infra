@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lumen-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lumen-server
+  template:
+    metadata:
+      labels:
+        app: lumen-server
+    spec:
+      containers:
+      - image: ghcr.io/l-u-m-e-n/lumen-server-docker-seafile-client:master
+        name: lumen-server
+        imagePullPolicy: Always
+        env:
+          - name: LIBRARY_ID
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-5h578dttdh
+                key: libraryId
+                optional: false
+          - name: SERVER_PORT
+            value: "443"
+          - name: SERVER_URL
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-5h578dttdh
+                key: serverUrl
+                optional: false
+          - name: USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-5h578dttdh
+                key: username
+                optional: false
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-5h578dttdh
+                key: password
+                optional: false
+      imagePullSecrets:
+      - name: github
