@@ -1,22 +1,4 @@
 apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: security-ingressroute
-  namespace: kube-system
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - kind: Rule
-      match: PathPrefix(`/`)
-      priority: 1
-      middlewares:
-        - name: security
-      services:
-        - kind: TraefikService
-          name: noop@internal
----
-apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: security
