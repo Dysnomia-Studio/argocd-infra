@@ -17,6 +17,9 @@ spec:
     #Referrer policy
     referrerPolicy: strict-origin-when-cross-origin
 
+    #Permissions policy
+    permissionsPolicy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+
     # Hide powered by headers
     customResponseHeaders:
       x-powered-by: ""
