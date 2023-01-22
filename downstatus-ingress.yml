@@ -12,5 +12,7 @@ spec:
     services:
     - name: downstatus-svc
       port: 80
+    middlewares:
+      - name: security
   tls:
     certResolver: le
