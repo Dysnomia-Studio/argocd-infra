@@ -1,14 +1,39 @@
 apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: security-ingressroute
+  namespace: kube-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: PathPrefix(`/`)
+      priority: 1
+      middlewares:
+        - name: security
+      services:
+        - kind: TraefikService
+          name: noop@internal
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: security
-  namespace: dysnomia-apps
+  namespace: kube-system
 spec:
   headers:
     frameDeny: true
+    customFrameOptionsValue: sameorigin
     sslRedirect: true
     browserXssFilter: true
     contentTypeNosniff: true
+
+    #HSTS Configuration
     stsIncludeSubdomains: true
     stsPreload: true
     stsSeconds: 31536000
+
+    # Hide powered by headers
+    customResponseHeaders:
+      x-powered-by: ""
