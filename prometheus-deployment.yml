@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/prometheus:main
+        name: prometheus
+        ports:
+        - containerPort: 9090
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: github
