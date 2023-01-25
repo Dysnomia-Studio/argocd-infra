@@ -14,7 +14,7 @@ spec:
         app: grafana
     spec:
       containers:
-      - image: grafana/grafana-oss
+      - image: ghcr.io/dysnomia-studio/grafana:main
         name: grafana
         ports:
         - containerPort: 3000
