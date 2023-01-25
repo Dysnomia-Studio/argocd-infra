@@ -14,7 +14,7 @@ spec:
         app: pgwatch
     spec:
       containers:
-      - image: cybertec/pgwatch2-postgres:v1.10.0-beta3
+      - image: cybertec/pgwatch2-daemon:v1.10.0-beta3
         name: pgwatch
         ports:
         - containerPort: 9000
@@ -48,5 +48,7 @@ spec:
                 name: pgwatch2-k9t96bk586
                 key: password
                 optional: false
+          - name: PW2_DATASTORE
+            value: prometheus
       imagePullSecrets:
       - name: github
