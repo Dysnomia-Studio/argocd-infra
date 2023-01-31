@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: redmine
+  template:
+    metadata:
+      labels:
+        app: redmine
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/redmine:main
+        name: redmine
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+        env:
+          - name: REDMINE_DB_POSTGRES
+            valueFrom:
+              secretKeyRef:
+                name: redmine-ddf724h7mg
+                key: hostname
+                optional: false
+          - name: REDMINE_DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: redmine-ddf724h7mg
+                key: username
+                optional: false
+          - name: REDMINE_DB_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: redmine-ddf724h7mg
+                key: database
+                optional: false
+          - name: REDMINE_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redmine-ddf724h7mg
+                key: password
+                optional: false
+          - name: REDMINE_PLUGINS_MIGRATE
+            value: "1"
+      imagePullSecrets:
+      - name: github

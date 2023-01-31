@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: redmine-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`bugs.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: redmine-svc
+      port: 80
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le
