@@ -15,7 +15,7 @@ data:
       - targets: ['traefik:8080']
     - job_name: 'pgwatch2'
       static_configs:
-      - targets: ['pgwatch:9000']
+      - targets: ['pgwatch:9187']
     - job_name: 'prometheus'
       scrape_interval: 5s
       static_configs:

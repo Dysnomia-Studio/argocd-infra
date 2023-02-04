@@ -18,7 +18,7 @@ spec:
       - image: cybertec/pgwatch2-daemon:v1.10.0-beta3
         name: pgwatch
         ports:
-        - containerPort: 9000
+        - containerPort: 9187
         imagePullPolicy: Always
         env:
           - name: PW2_TESTDB
