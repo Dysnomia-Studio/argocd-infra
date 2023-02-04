@@ -8,4 +8,5 @@ spec:
   - port: 9100
     targetPort: 9100
   selector:
-    app: traefik
+    app.kubernetes.io/instance: traefik-kube-system
+    app.kubernetes.io/name: traefik
