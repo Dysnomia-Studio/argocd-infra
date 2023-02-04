@@ -14,10 +14,14 @@ spec:
         app: prometheus
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/prometheus:main
+      - image: prom/prometheus:v2.42.0
         name: prometheus
         ports:
         - containerPort: 9090
-        imagePullPolicy: Always
-      imagePullSecrets:
-      - name: github
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus
+      volumes:
+      - name: config-volume
+        configMap:
+         name: prometheus-config
