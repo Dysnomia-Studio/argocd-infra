@@ -34,7 +34,7 @@ data:
     - job_name: 'blackbox_3xx'
       metrics_path: /probe
       params:
-        module: [http_2xx]
+        module: [http_3xx]
       static_configs:
        - targets:
           - http://www.achieve.games
