@@ -10,7 +10,28 @@ data:
     global:
       scrape_interval: 10s
     scrape_configs:
-    - job_name: 'blackbox'
+    - job_name: 'blackbox_2xx'
+      metrics_path: /probe
+      params:
+        module: [http_2xx]
+      static_configs:
+       - targets:
+          - https://achieve.games
+          - https://www.achieve.games
+          - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
+          - https://elanis.eu
+          - https://www.elanis.eu
+          - https://elanis.fr
+          - https://www.elanis.fr
+      relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter.kube-system.svc.cluster.local:9115
+
+    - job_name: 'blackbox_3xx'
       metrics_path: /probe
       params:
         module: [http_2xx]
@@ -18,18 +39,11 @@ data:
        - targets:
           - http://www.achieve.games
           - http://achieve.games
-          - https://achieve.games
-          - https://www.achieve.games
           - http://alchemistry-leaderboard.dysnomia.studio/leaderboard/
-          - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
           - http://www.elanis.eu
           - http://elanis.eu
-          - https://elanis.eu
-          - https://www.elanis.eu
           - http://www.elanis.fr
           - http://elanis.fr
-          - https://elanis.fr
-          - https://www.elanis.fr
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
