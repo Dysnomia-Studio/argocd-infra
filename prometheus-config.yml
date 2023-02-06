@@ -19,10 +19,16 @@ data:
           - https://achieve.games
           - https://www.achieve.games
           - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
+          - https://downstat.us
+          - https://www.downstat.us
+          - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - https://elanis.eu
           - https://www.elanis.eu
           - https://elanis.fr
           - https://www.elanis.fr
+          - https://www.gaspar.ovh
+          - https://gaspar.ovh
+          - https://sonar.dysnomia.studio
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -31,19 +37,43 @@ data:
       - target_label: __address__
         replacement: blackbox-exporter.kube-system.svc.cluster.local:9115
 
-    - job_name: 'blackbox_3xx'
+    - job_name: 'blackbox_301'
       metrics_path: /probe
       params:
-        module: [http_3xx]
+        module: [http_301]
       static_configs:
        - targets:
           - http://www.achieve.games
           - http://achieve.games
           - http://alchemistry-leaderboard.dysnomia.studio/leaderboard/
+          - http://downstat.us
+          - http://www.downstat.us
+          - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - http://www.elanis.eu
           - http://elanis.eu
           - http://www.elanis.fr
           - http://elanis.fr
+          - http://www.gaspar.ovh
+          - http://gaspar.ovh
+          - http://prd.manufacturinc.dysnomia.studio
+          - http://ptb.manufacturinc.dysnomia.studio
+          - http://sonar.dysnomia.studio
+      relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter.kube-system.svc.cluster.local:9115
+
+    - job_name: 'blackbox_400'
+      metrics_path: /probe
+      params:
+        module: [http_400]
+      static_configs:
+       - targets:
+          - https://prd.manufacturinc.dysnomia.studio
+          - https://ptb.manufacturinc.dysnomia.studio
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
