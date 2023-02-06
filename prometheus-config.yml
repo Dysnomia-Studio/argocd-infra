@@ -72,8 +72,8 @@ data:
         module: [http_400]
       static_configs:
        - targets:
-          - https://prd.manufacturinc.dysnomia.studio
-          - https://ptb.manufacturinc.dysnomia.studio
+          - https://prd.manufacturinc.dysnomia.studio/socket.io/
+          - https://ptb.manufacturinc.dysnomia.studio/socket.io/
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
