@@ -57,6 +57,23 @@ spec:
                 key: password
                 optional: false
 
+          - name: DS_REDMINE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: grafana-bhc6hgmdk6
+                key: username
+                optional: false
+          - name: DS_REDMINE_HOST
+            value: 192.168.1.3
+          - name: DS_REDMINE_DB
+            value: redmine
+          - name: DS_REDMINE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: grafana-bhc6hgmdk6
+                key: password
+                optional: false
+
           - name: DS_STATS_USERNAME
             valueFrom:
               secretKeyRef:
