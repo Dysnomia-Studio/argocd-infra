@@ -1,0 +1,31 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager-config
+  namespace: monitoring
+data:
+  config.yml: |-
+    global:
+    templates:
+    - '/etc/alertmanager/*.tmpl'
+    route:
+      receiver: alert-emailer
+      group_by: ['alertname']
+      group_wait: 10s
+      repeat_interval: 30m
+      routes:
+        - receiver: discord
+          group_wait: 10s
+          repeat_interval: 1m
+ 
+    receivers:
+    - name: alert-emailer
+      email_configs:
+      - to: contact@dysnomia.studio
+        send_resolved: false
+        from: contact@dysnomia.studio
+        smarthost: mail.dysnomia.studio:25
+        require_tls: false
+    - name: discord
+      discord_configs:
+      - webhook_url: https://discord.com/api/webhooks/981996880768663562/t74hro3otyFYeL4k0JbReH52kaoe_MH5r-rqvavwglyn7j_CRNdhCGi0Dj25NOuxaIpK
