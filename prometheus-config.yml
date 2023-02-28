@@ -379,18 +379,19 @@ data:
         module: [http_2xx]
       static_configs:
        - targets:
+          - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - https://achieve.games
           - https://www.achieve.games
           - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
+          - https://cdn.galactae.eu
           - https://downstat.us
           - https://www.downstat.us
-          - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - https://elanis.eu
           - https://www.elanis.eu
           - https://elanis.fr
           - https://www.elanis.fr
-          - https://www.gaspar.ovh
           - https://gaspar.ovh
+          - https://www.gaspar.ovh
           - https://sonar.dysnomia.studio
       relabel_configs:
       - source_labels: [__address__]
@@ -406,18 +407,19 @@ data:
         module: [http_301]
       static_configs:
        - targets:
+          - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - http://www.achieve.games
           - http://achieve.games
           - http://alchemistry-leaderboard.dysnomia.studio/leaderboard/
+          - http://cdn.galactae.eu
           - http://downstat.us
           - http://www.downstat.us
-          - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
-          - http://www.elanis.eu
           - http://elanis.eu
-          - http://www.elanis.fr
+          - http://www.elanis.eu
           - http://elanis.fr
-          - http://www.gaspar.ovh
+          - http://www.elanis.fr
           - http://gaspar.ovh
+          - http://www.gaspar.ovh
           - http://prd.manufacturinc.dysnomia.studio
           - http://ptb.manufacturinc.dysnomia.studio
           - http://sonar.dysnomia.studio

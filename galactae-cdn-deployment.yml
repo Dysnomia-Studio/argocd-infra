@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galactae-cdn
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: galactae-cdn
+  template:
+    metadata:
+      labels:
+        app: galactae-cdn
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/galactae-cdn:main
+        name: galactae-cdn
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: github
