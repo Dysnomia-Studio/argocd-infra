@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: galactae-website-config
+data:
+  config.php: |
+    <?php
+    $config = array(
+      'mongoURL' => '',
+      'SQLCredentials' => [
+        'host' => getenv('GALACTAE_SQL_SERVER'),
+        'db' => getenv('GALACTAE_SQL_DATABASE'),
+        'id' => getenv('GALACTAE_SQL_USERNAME'),
+        'password' => getenv('GALACTAE_SQL_PASSWORD'),
+        'driver' => 'pgsql',
+        'port' => 5432
+      ],
+      "languageList" => [
+        'en' => 'English',
+        'fr' => 'Francais',
+        //'de' => 'Deutsch',
+        //'ru' => 'русский'
+      ],
+      "cacheBlacklist" => [
+        "login",
+        "register",
+        "portal",
+        "contact",
+        "deconnexion",
+        "mailconf",
+        "forgotmypass",
+        "changepassword",
+        "profil",
+        "editprofil"
+      ],
+      "stats" => [
+        'host' => getenv('STATS_SQL_SERVER'),
+        'db' => getenv('STATS_SQL_DATABASE'),
+        'id' => getenv('STATS_SQL_USERNAME'),
+        'password' => getenv('STATS_SQL_PASSOWRD'),
+      ],
+      "mail_password" => getenv('MAIL_PASSOWRD'),
+
+      "pass-minsize" => 8,
+
+      "name-minsize" => 3,
+      "name-maxsize" => 20,
+    );
