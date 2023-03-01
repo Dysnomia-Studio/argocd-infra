@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: galactae-client-00-config
+data:
+  config.php: |
+    <?php
+    $config = array(
+      'mongoURL' => '',
+      'SQLCredentials' => [
+        'host' => getenv('GALACTAE_SQL_SERVER'),
+        'db' => getenv('GALACTAE_SQL_DATABASE'),
+        'id' => getenv('GALACTAE_SQL_USERNAME'),
+        'password' => getenv('GALACTAE_SQL_PASSWORD'),
+        'driver' => 'pgsql',
+        'port' => 5432
+      ],
+      "languageList" => [
+        'en' => 'English',
+        'fr' => 'Francais',
+        //'de' => 'Deutsch',
+        //'ru' => 'русский'
+      ],
+      "cacheBlacklist" => [],
+      "stats" => [
+        'host' => getenv('STATS_SQL_SERVER'),
+        'db' => getenv('STATS_SQL_DATABASE'),
+        'id' => getenv('STATS_SQL_USERNAME'),
+        'password' => getenv('STATS_SQL_PASSOWRD'),
+      ],
+    );
+
+  gvars.php: |
+    <?php
+    $cdnURL = './cdn/';
+    $dbname = 'galactae-00';
+    $serverName = 'dev';
+    $beginnerProtectionDuration = 7;
+
+    $config['SQLCredentialsGameServer'] = [
+        'host' => getenv('GALACTAE_00_SQL_SERVER'),
+        'db' => getenv('GALACTAE_00_SQL_DATABASE'),
+        'id' => getenv('GALACTAE_00_SQL_USERNAME'),
+        'password' => getenv('GALACTAE_00_SQL_PASSWORD'),
+        'driver' => 'pgsql',
+        'port' => 5432
+    ];
+
+    if(!isset($noscript)) {
+    ?>
+    <script type="text/javascript" src="<?= $cdnURL ?>js/cookies.js"></script>
+    <script type="text/javascript">
+            let userData = {
+                    username: "",
+                    id: "",
+                    pid: getCookie('galactae-account-pid'),
+                    money: 0,
+                    gvt: 1,
+                    research: {}
+            };
+
+            let gameServer = "wss://00-srv.galactae.eu";
+            var cdnURL = "<?php echo $cdnURL; ?>";
+            let serverName = "<?php echo $serverName; ?>";
+
+            function setGvars(id,user) {
+                    userData.username = user;
+                    userData.id = id;
+            }
+    </script>
+    <?php
+    }
+    ?>

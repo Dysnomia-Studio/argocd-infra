@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galactae-client-00
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: galactae-client-00
+  template:
+    metadata:
+      labels:
+        app: galactae-client-00
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/galactae-client:develop
+        name: galactae-client-00
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: GALACTAE_00_SQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-00-h8tbcft7mg
+                key: username
+                optional: false
+          - name: GALACTAE_00_SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: galactae-00-h8tbcft7mg
+                key: hostname
+                optional: false
+          - name: GALACTAE_00_SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: galactae-00-h8tbcft7mg
+                key: database
+                optional: false
+          - name: GALACTAE_00_SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-00-h8tbcft7mg
+                key: password
+                optional: false
+
+          - name: STATS_SQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-78b6m75km9
+                key: username
+                optional: false
+          - name: STATS_SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-78b6m75km9
+                key: hostname
+                optional: false
+          - name: STATS_SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-78b6m75km9
+                key: database
+                optional: false
+          - name: STATS_SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-78b6m75km9
+                key: password
+                optional: false
+
+        volumeMounts:
+        - name: galactae-client-00-config
+          mountPath: "/var/www/config/"
+          readOnly: true
+
+        - name: galactae-client-00-config
+          mountPath: "/var/www/app/views/gvars/"
+          readOnly: true
+
+      imagePullSecrets:
+      - name: github
+      volumes:
+      - name: galactae-client-00-config
+        configMap:
+          name: galactae-client-00-config
