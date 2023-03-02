@@ -20,7 +20,7 @@ data:
                             user: process.env.GALACTAE_01_SQL_USERNAME,
                             host: process.env.GALACTAE_01_SQL_SERVER,
                             database: process.env.GALACTAE_01_SQL_DATABASE,
-                            password: process.env.GALACTAE_01_SQL_PASSOWRD,
+                            password: process.env.GALACTAE_01_SQL_PASSWORD,
                             port: 5432
                     },
                     dev: false,
