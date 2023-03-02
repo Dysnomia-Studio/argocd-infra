@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galactae-server-01
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: galactae-server-01
+  template:
+    metadata:
+      labels:
+        app: galactae-server-01
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/galactae-server:Beta-0.10.7-rev.20230302a
+        name: galactae-server-01
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: GALACTAE_01_SQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-01-2kg42mb29d
+                key: username
+                optional: false
+          - name: GALACTAE_01_SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: galactae-01-2kg42mb29d
+                key: hostname
+                optional: false
+          - name: GALACTAE_01_SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: galactae-01-2kg42mb29d
+                key: database
+                optional: false
+          - name: GALACTAE_01_SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-01-2kg42mb29d
+                key: password
+                optional: false
+
+          - name: GALACTAE_SQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: username
+                optional: false
+          - name: GALACTAE_SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: hostname
+                optional: false
+          - name: GALACTAE_SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: database
+                optional: false
+          - name: GALACTAE_SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: password
+                optional: false
+
+          - name: GALACTAE_DISCORD_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: galactae-server-7gf6hgtdgg
+                key: discord-token
+                optional: false
+
+          - name: GALACTAE_ADMIN_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-server-7gf6hgtdgg
+                key: adminUsername
+                optional: false   
+
+          - name: GALACTAE_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-server-7gf6hgtdgg
+                key: adminPassword
+                optional: false  
+
+        volumeMounts:
+        - name: galactae-server-01-config
+          mountPath: "/app/config/"
+          readOnly: true
+
+      imagePullSecrets:
+      - name: github
+      volumes:
+      - name: galactae-server-01-config
+        configMap:
+          name: galactae-server-01-config

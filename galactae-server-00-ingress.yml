@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: galactae-server-00-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`00-srv.galactae.eu`)
+    kind: Rule
+    services:
+    - name: galactae-server-00-svc
+      port: 80
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

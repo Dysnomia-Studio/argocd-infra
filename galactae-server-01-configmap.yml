@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: galactae-server-01-config
+data:
+  config.js: |
+    module.exports = function() {
+            this.globalCfg = {
+                    serverName:             'milkyway',
+                    serverGlobalName:       'galactae-01',
+                    serverPort:             42691,
+                    generalDb: {
+                            user: process.env.GALACTAE_SQL_USERNAME,
+                            host: process.env.GALACTAE_SQL_SERVER,
+                            database: process.env.GALACTAE_SQL_DATABASE,
+                            password: process.env.GALACTAE_SQL_PASSWORD,
+                            port: 5432,
+                    },
+                    serverDb: {
+                            user: process.env.GALACTAE_01_SQL_USERNAME,
+                            host: process.env.GALACTAE_01_SQL_SERVER,
+                            database: process.env.GALACTAE_01_SQL_DATABASE,
+                            password: process.env.GALACTAE_01_SQL_PASSOWRD,
+                            port: 5432
+                    },
+                    dev: false,
+                    gameSpeeds: {
+                            building: 1,
+                            conquest: 1,
+                            research: 1,
+                            unitBuilding: 1,
+                            unitMoving: 1,
+                    },
+                    discordToken: process.env.GALACTAE_DISCORD_TOKEN,
+                    adminUsername: process.env.GALACTAE_ADMIN_USERNAME,
+                    adminPassword: process.env.GALACTAE_ADMIN_PASSWORD,
+            };
+    };
