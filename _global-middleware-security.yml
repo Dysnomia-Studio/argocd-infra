@@ -10,7 +10,7 @@ spec:
     contentTypeNosniff: true
 
     #CSP
-    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' googleads.g.doubleclick.net pagead2.googlesyndication.com storage.googleapis.com googleads.g.doubleclick.net ajax.googleapis.com"
+    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' googleads.g.doubleclick.net pagead2.googlesyndication.com storage.googleapis.com googleads.g.doubleclick.net ajax.googleapis.com 00-srv.galactae.eu 01-srv.galactae.eu wss://00-srv.galactae.eu wss://01-srv.galactae.eu"
 
     #HSTS Configuration
     stsIncludeSubdomains: true
