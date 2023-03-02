@@ -32,7 +32,7 @@ data:
 
   gvars.php: |
     <?php
-    $cdnURL = "https://cdn.galactae.eu";
+    $cdnURL = "https://cdn.galactae.eu/game/";
     $dbname = "galactae-01";
     $serverName = "milkyway";
     $beginnerProtectionDuration = 7;
