@@ -380,7 +380,7 @@ data:
       static_configs:
        - targets:
           - https://00-dev.galactae.eu
-          - https://01-dev.galactae.eu
+          - https://01-milkyway.galactae.eu
           - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - https://achieve.games
           - https://www.achieve.games
@@ -416,7 +416,7 @@ data:
       static_configs:
        - targets:
           - http://00-dev.galactae.eu
-          - http://01-dev.galactae.eu
+          - http://01-milkyway.galactae.eu
           - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - http://www.achieve.games
           - http://achieve.games
