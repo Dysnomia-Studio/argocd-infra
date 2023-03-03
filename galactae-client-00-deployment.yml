@@ -24,6 +24,31 @@ spec:
               command: ["/bin/sh", "-c", "bash /var/www/applyEnvVariables.sh"]
         imagePullPolicy: Always
         env:
+          - name: GALACTAE_SQL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: username
+                optional: false
+          - name: GALACTAE_SQL_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: hostname
+                optional: false
+          - name: GALACTAE_SQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: database
+                optional: false
+          - name: GALACTAE_SQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-gfkkg56t7b
+                key: password
+                optional: false
+          
           - name: GALACTAE_00_SQL_USERNAME
             valueFrom:
               secretKeyRef:
