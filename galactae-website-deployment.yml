@@ -18,6 +18,10 @@ spec:
         name: galactae-website
         ports:
         - containerPort: 80
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "bash /var/www/applyEnvVariables.sh"]
         imagePullPolicy: Always
         env:
           - name: GALACTAE_SQL_USERNAME
