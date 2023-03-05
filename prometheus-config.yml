@@ -274,13 +274,13 @@ data:
             description: "Blackbox configuration reload failure\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
         - alert: BlackboxSlowProbe
-          expr: 'avg_over_time(probe_duration_seconds[5m]) > 2'
+          expr: 'avg_over_time(probe_duration_seconds[5m]) > 5'
           for: 1m
           labels:
             severity: warning
           annotations:
             summary: Blackbox slow probe (instance {{ $labels.instance }})
-            description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+            description: "Blackbox probe took more than 5s to complete\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
         - alert: BlackboxProbeHttpFailure
           expr: 'probe_http_status_code <= 199 OR probe_http_status_code >= 400'
@@ -319,7 +319,7 @@ data:
             description: "SSL certificate has expired already\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
         - alert: BlackboxProbeSlowHttp
-          expr: 'avg_over_time(probe_http_duration_seconds[1m]) > 1'
+          expr: 'avg_over_time(probe_http_duration_seconds[5m]) > 2'
           for: 1m
           labels:
             severity: warning
