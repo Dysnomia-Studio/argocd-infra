@@ -17,7 +17,7 @@ data:
           - HTTP/2.0
           valid_status_codes: []
         prober: http
-        timeout: 5s
+        timeout: 10s
       http_301:
         http:
           no_follow_redirects: true
