@@ -5,6 +5,8 @@ metadata:
   namespace: kube-system
   labels:
     k8s-app: blackbox-exporter
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   selector:

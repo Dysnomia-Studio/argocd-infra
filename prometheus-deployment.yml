@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: prometheus
   namespace: kube-system
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   revisionHistoryLimit: 3
