@@ -102,17 +102,17 @@ spec:
                 optional: false
 
         volumeMounts:
-        - name: galactae-client-00-config
+        - name: galactae-client-01-config
           mountPath: "/var/www/config/"
           readOnly: true
 
-        - name: galactae-client-00-config
+        - name: galactae-client-01-config
           mountPath: "/var/www/app/views/gvars/"
           readOnly: true
 
       imagePullSecrets:
       - name: github
       volumes:
-      - name: galactae-client-00-config
+      - name: galactae-client-01-config
         configMap:
-          name: galactae-client-00-config
+          name: galactae-client-01-config
