@@ -71,5 +71,12 @@ spec:
                 key: clientsecret
                 optional: false
 
+          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-d78t565ckb
+                key: connectionstring
+                optional: false
+
       imagePullSecrets:
       - name: github
