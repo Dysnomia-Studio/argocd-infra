@@ -26,5 +26,11 @@ spec:
                 name: downstatus-hbk6675229
                 key: database
                 optional: false
+          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-d78t565ckb
+                key: connectionstring
+                optional: false
       imagePullSecrets:
       - name: github

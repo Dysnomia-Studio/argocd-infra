@@ -79,25 +79,25 @@ spec:
           - name: STATS_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-78b6m75km9
+                name: stats-writer-credentials-d78t565ckb
                 key: username
                 optional: false
           - name: STATS_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-78b6m75km9
+                name: stats-writer-credentials-d78t565ckb
                 key: hostname
                 optional: false
           - name: STATS_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-78b6m75km9
+                name: stats-writer-credentials-d78t565ckb
                 key: database
                 optional: false
           - name: STATS_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-78b6m75km9
+                name: stats-writer-credentials-d78t565ckb
                 key: password
                 optional: false
 
