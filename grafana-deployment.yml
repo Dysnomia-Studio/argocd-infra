@@ -30,7 +30,7 @@ spec:
                 key: username
                 optional: false
           - name: DS_DMARCREPORTS_HOST
-            value: postgres
+            value:  postgres.dysnomia-apps.svc.cluster.local
           - name: DS_DMARCREPORTS_DB
             value: dmarcreports
           - name: DS_DMARCREPORTS_PASSWORD
@@ -47,7 +47,7 @@ spec:
                 key: username
                 optional: false
           - name: DS_LUMEN_HOST
-            value: postgres
+            value:  postgres.dysnomia-apps.svc.cluster.local
           - name: DS_LUMEN_DB
             value: lumen
           - name: DS_LUMEN_PASSWORD
@@ -64,7 +64,7 @@ spec:
                 key: username
                 optional: false
           - name: DS_REDMINE_HOST
-            value: postgres
+            value:  postgres.dysnomia-apps.svc.cluster.local
           - name: DS_REDMINE_DB
             value: redmine
           - name: DS_REDMINE_PASSWORD
@@ -81,7 +81,7 @@ spec:
                 key: username
                 optional: false
           - name: DS_STATS_HOST
-            value: postgres
+            value:  postgres.dysnomia-apps.svc.cluster.local
           - name: DS_STATS_DB
             value: stats
           - name: DS_STATS_PASSWORD
