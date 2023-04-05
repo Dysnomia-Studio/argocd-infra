@@ -14,7 +14,7 @@ spec:
         app: postgres
     spec:
       containers:
-      - image: nginx:latest
+      - image: postgres:15.2-alpine
         name: postgres
         imagePullPolicy: Always
         volumeMounts:
