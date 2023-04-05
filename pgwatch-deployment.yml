@@ -24,11 +24,7 @@ spec:
           - name: PW2_TESTDB
             value: "false"
           - name: PW2_PGHOST
-            valueFrom:
-              secretKeyRef:
-                name: pgwatch2-4mf6c24m92
-                key: hostname
-                optional: false
+            value: postgres.dysnomia-apps.svc.cluster.local
           - name: PW2_PGPORT
             value: "5432"
           - name: PW2_PGDATABASE
