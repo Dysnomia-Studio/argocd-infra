@@ -36,25 +36,25 @@ spec:
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-btdd4ckk2t
+                name: factory-server-prod-database-58b5fgtfkb
                 key: username
                 optional: false
           - name: PG_HOST
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-btdd4ckk2t
+                name: factory-server-prod-database-58b5fgtfkb
                 key: hostname
                 optional: false
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-btdd4ckk2t
+                name: factory-server-prod-database-58b5fgtfkb
                 key: database
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-btdd4ckk2t
+                name: factory-server-prod-database-58b5fgtfkb
                 key: password
                 optional: false
 

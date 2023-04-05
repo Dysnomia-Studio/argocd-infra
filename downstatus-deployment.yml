@@ -23,13 +23,13 @@ spec:
           - name: AppSettings__ConnectionString
             valueFrom:
               secretKeyRef:
-                name: downstatus-hbk6675229
+                name: downstatus-7g48th8f59
                 key: database
                 optional: false
           - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: connectionstring
                 optional: false
       imagePullSecrets:

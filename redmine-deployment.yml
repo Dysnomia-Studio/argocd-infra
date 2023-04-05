@@ -23,25 +23,25 @@ spec:
           - name: REDMINE_DB_POSTGRES
             valueFrom:
               secretKeyRef:
-                name: redmine-ddf724h7mg
+                name: redmine-h7ckmc79k5
                 key: hostname
                 optional: false
           - name: REDMINE_DB_USERNAME
             valueFrom:
               secretKeyRef:
-                name: redmine-ddf724h7mg
+                name: redmine-h7ckmc79k5
                 key: username
                 optional: false
           - name: REDMINE_DB_DATABASE
             valueFrom:
               secretKeyRef:
-                name: redmine-ddf724h7mg
+                name: redmine-h7ckmc79k5
                 key: database
                 optional: false
           - name: REDMINE_DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: redmine-ddf724h7mg
+                name: redmine-h7ckmc79k5
                 key: password
                 optional: false
           - name: REDMINE_PLUGINS_MIGRATE

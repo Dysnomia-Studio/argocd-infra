@@ -36,25 +36,25 @@ spec:
           - name: AppSettings__ConnectionString
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f5879b468
+                name: achieve-games-6f86m258df
                 key: database
                 optional: false
           - name: AppSettings__RedirectURI
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f5879b468
+                name: achieve-games-6f86m258df
                 key: redirecturi
                 optional: false
           - name: AppSettings__GithubToken
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f5879b468
+                name: achieve-games-6f86m258df
                 key: githubtoken
                 optional: false
           - name: AppSettings__DiscordToken
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f5879b468
+                name: achieve-games-6f86m258df
                 key: discordToken
                 optional: false
 
@@ -74,7 +74,7 @@ spec:
           - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: connectionstring
                 optional: false
 

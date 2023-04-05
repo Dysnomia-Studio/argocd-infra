@@ -29,75 +29,75 @@ spec:
           - name: GALACTAE_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-website-gfkkg56t7b
+                name: galactae-website-mtckh984h5
                 key: username
                 optional: false
           - name: GALACTAE_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: galactae-website-gfkkg56t7b
+                name: galactae-website-mtckh984h5
                 key: hostname
                 optional: false
           - name: GALACTAE_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-website-gfkkg56t7b
+                name: galactae-website-mtckh984h5
                 key: database
                 optional: false
           - name: GALACTAE_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-website-gfkkg56t7b
+                name: galactae-website-mtckh984h5
                 key: password
                 optional: false
 
           - name: GALACTAE_01_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-01-2kg42mb29d
+                name: galactae-01-hd7tm8c952
                 key: username
                 optional: false
           - name: GALACTAE_01_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: galactae-01-2kg42mb29d
+                name: galactae-01-hd7tm8c952
                 key: hostname
                 optional: false
           - name: GALACTAE_01_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-01-2kg42mb29d
+                name: galactae-01-hd7tm8c952
                 key: database
                 optional: false
           - name: GALACTAE_01_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-01-2kg42mb29d
+                name: galactae-01-hd7tm8c952
                 key: password
                 optional: false
 
           - name: STATS_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: username
                 optional: false
           - name: STATS_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: hostname
                 optional: false
           - name: STATS_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: database
                 optional: false
           - name: STATS_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: password
                 optional: false
 

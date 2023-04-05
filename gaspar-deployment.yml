@@ -23,13 +23,13 @@ spec:
           - name: AppSettings__ConnectionString
             valueFrom:
               secretKeyRef:
-                name: gaspar-49t9f58bmk
+                name: gaspar-c85m8h78dc
                 key: database
                 optional: false
           - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: connectionstring
                 optional: false
       imagePullSecrets:

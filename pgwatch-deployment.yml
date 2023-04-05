@@ -26,7 +26,7 @@ spec:
           - name: PW2_PGHOST
             valueFrom:
               secretKeyRef:
-                name: pgwatch2-k9t96bk586
+                name: pgwatch2-4mf6c24m92
                 key: hostname
                 optional: false
           - name: PW2_PGPORT
@@ -34,19 +34,19 @@ spec:
           - name: PW2_PGDATABASE
             valueFrom:
               secretKeyRef:
-                name: pgwatch2-k9t96bk586
+                name: pgwatch2-4mf6c24m92
                 key: database
                 optional: false
           - name: PW2_PGUSER
             valueFrom:
               secretKeyRef:
-                name: pgwatch2-k9t96bk586
+                name: pgwatch2-4mf6c24m92
                 key: username
                 optional: false
           - name: PW2_PGPASSWORD
             valueFrom:
               secretKeyRef:
-                name: pgwatch2-k9t96bk586
+                name: pgwatch2-4mf6c24m92
                 key: password
                 optional: false
           - name: PW2_DATASTORE

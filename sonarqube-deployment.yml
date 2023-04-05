@@ -23,19 +23,19 @@ spec:
           - name: SONAR_JDBC_URL
             valueFrom:
               secretKeyRef:
-                name: sonarqube-672k55668d
+                name: sonarqube-k4mfgbb88k
                 key: url
                 optional: false
           - name: SONAR_JDBC_USERNAME
             valueFrom:
               secretKeyRef:
-                name: sonarqube-672k55668d
+                name: sonarqube-k4mfgbb88k
                 key: username
                 optional: false
           - name: SONAR_JDBC_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: sonarqube-672k55668d
+                name: sonarqube-k4mfgbb88k
                 key: password
                 optional: false
           - name: SONAR_WEB_JAVAADDITIONALOPTS 

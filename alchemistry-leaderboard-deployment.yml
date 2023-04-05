@@ -29,7 +29,7 @@ spec:
           - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-d78t565ckb
+                name: stats-writer-credentials-8ckkfd9ff2
                 key: connectionstring
                 optional: false
       imagePullSecrets:

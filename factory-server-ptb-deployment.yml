@@ -36,25 +36,25 @@ spec:
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-5997g5fgc2
+                name: factory-server-ptb-database-th6485bc5f
                 key: username
                 optional: false
           - name: PG_HOST
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-5997g5fgc2
+                name: factory-server-ptb-database-th6485bc5f
                 key: hostname
                 optional: false
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-5997g5fgc2
+                name: factory-server-ptb-database-th6485bc5f
                 key: database
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-5997g5fgc2
+                name: factory-server-ptb-database-th6485bc5f
                 key: password
                 optional: false
 
