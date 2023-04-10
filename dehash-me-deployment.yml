@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dehash-me
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: dehash-me
+  template:
+    metadata:
+      labels:
+        app: dehash-me
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/dehash-me:main
+        name: dehash-me
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: AppSettings__ConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: dehash-me-t748kcffb6
+                key: database
+                optional: false
+          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
+            valueFrom:
+              secretKeyRef:
+                name: stats-writer-credentials-8ckkfd9ff2
+                key: connectionstring
+                optional: false
+      imagePullSecrets:
+      - name: github
