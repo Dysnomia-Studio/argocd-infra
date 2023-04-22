@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dysnomia-website
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: dysnomia-website
+  template:
+    metadata:
+      labels:
+        app: dysnomia-website
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/dysnomia-website:3.0.0
+        name: dysnomia-website
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: github
