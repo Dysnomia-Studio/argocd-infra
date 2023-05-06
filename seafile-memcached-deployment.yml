@@ -15,7 +15,7 @@ spec:
         app: seafile-memcached
     spec:
       containers:
-      - image: memcached:1.6.18
+      - image: memcached:1.6.19
         name: seafile-memcached
         imagePullPolicy: Always
         ports:
