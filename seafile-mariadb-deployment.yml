@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-mariadb
+  namespace: seafile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: seafile-mariadb
+  template:
+    metadata:
+      labels:
+        app: seafile-mariadb
+    spec:
+      containers:
+      - image: mariadb:10.6
+        name: seafile-mariadb
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: seafile-777kg4k255
+                key: mysql-password
+                optional: false
+          - name: MYSQL_LOG_CONSOLE
+            value: "true"
+
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: longhorn-pvc-seafile-mariadb-data

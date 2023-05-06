@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-server
+  namespace: seafile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: seafile-server
+  template:
+    metadata:
+      labels:
+        app: seafile-server
+    spec:
+      containers:
+      - image: docker.seadrive.org/seafileltd/seafile-pro-mc:9.0.16
+        name: seafile-server
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: data
+          mountPath: /shared
+        ports:
+          - containerPort: 8000
+          - containerPort: 8080
+          - containerPort: 8082         
+        env:
+          - name: DB_HOST
+            value: seafile-mariadb.seafile.svc.cluster.local
+          - name: DB_ROOT_PASSWD
+            valueFrom:
+              secretKeyRef:
+                name: seafile-777kg4k255
+                key: mysql-password
+                optional: false
+          - name: TIME_ZONE
+            value: Europe/Paris
+          - name: SEAFILE_ADMIN_EMAIL
+            valueFrom:
+              secretKeyRef:
+                name: seafile-777kg4k255
+                key: admin-mail
+                optional: false
+          - name: SEAFILE_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: seafile-777kg4k255
+                key: admin-password
+                optional: false
+
+      imagePullSecrets:
+      - name: docker-seadrive
+
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: longhorn-pvc-seafile-server-data

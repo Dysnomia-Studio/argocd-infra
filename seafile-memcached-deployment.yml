@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-memcached
+  namespace: seafile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: seafile-memcached
+  template:
+    metadata:
+      labels:
+        app: seafile-memcached
+    spec:
+      containers:
+      - image: memcached:1.6.18
+        name: seafile-memcached
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 11211
+        command:
+        - memcached
+        - -m
+        - "256"

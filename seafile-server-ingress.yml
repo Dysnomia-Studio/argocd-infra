@@ -1,0 +1,64 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: security
+  namespace: seafile
+spec:
+  headers:
+    customFrameOptionsValue: sameorigin
+    browserXssFilter: true
+    contentTypeNosniff: true
+
+    #CSP
+    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' googleads.g.doubleclick.net pagead2.googlesyndication.com storage.googleapis.com googleads.g.doubleclick.net ajax.googleapis.com 00-srv.galactae.eu 01-srv.galactae.eu wss://00-srv.galactae.eu wss://01-srv.galactae.eu"
+
+    #HSTS Configuration
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 31536000
+
+    #Referrer policy
+    referrerPolicy: strict-origin-when-cross-origin
+
+    #Permissions policy
+    permissionsPolicy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+
+    # Hide powered by headers
+    customResponseHeaders:
+      x-powered-by: ""
+
+# TODO fix this
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: seafile-server-ingressroute
+  namespace: seafile
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/seafhttp`)
+    kind: Rule
+    services:
+    - name: seafile-server-svc
+      port: 8082
+    middlewares:
+      - name: security
+  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/seafdav`)
+    kind: Rule
+    services:
+    - name: seafile-server-svc
+      port: 8080
+    middlewares:
+      - name: security
+  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: seafile-server-svc
+      port: 8000
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

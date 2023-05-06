@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-elasticsearch
+  namespace: seafile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: seafile-elasticsearch
+  template:
+    metadata:
+      labels:
+        app: seafile-elasticsearch
+    spec:
+      initContainers:
+        - name: increase-vm-max-map
+          image: busybox
+          command: ["sysctl", "-w", "vm.max_map_count=262144"]
+          securityContext:
+            privileged: true
+        - name: increase-fd-ulimit
+          image: busybox
+          command: ["sh", "-c", "ulimit -n 65536"]
+          securityContext:
+            privileged: true
+        - name: set-perms
+          image: busybox
+          command: ["/bin/chown", "-R", "1000:1000", "/usr/share/elasticsearch/data"]
+          securityContext:
+            runAsUser: 0
+            privileged: true
+          volumeMounts:
+          - name: data
+            mountPath: /usr/share/elasticsearch/data
+
+      containers:
+      - image: elasticsearch:7.16.2
+        name: seafile-elasticsearch
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+        ports:
+        - containerPort: 9200
+        env:
+          - name: "discovery.type"
+            value: "single-node"
+          - name: "bootstrap.memory_lock"
+            value: "true"
+          - name: "ES_JAVA_OPTS"
+            value: "-Xms1g -Xmx1g"
+
+        resources:
+          limits:
+            memory: 2Gi
+
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: longhorn-pvc-seafile-elasticsearch-data
