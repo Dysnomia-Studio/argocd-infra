@@ -36,7 +36,7 @@ spec:
             mountPath: /usr/share/elasticsearch/data
 
       containers:
-      - image: elasticsearch:7.16.2
+      - image: elasticsearch:8.7.1
         name: seafile-elasticsearch
         imagePullPolicy: Always
         volumeMounts:
