@@ -39,25 +39,11 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/seafhttp`)
+  - match: Host(`cloud.dysnomia.studio`)
     kind: Rule
     services:
     - name: seafile-server-svc
-      port: 8082
-    middlewares:
-      - name: security
-  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/seafdav`)
-    kind: Rule
-    services:
-    - name: seafile-server-svc
-      port: 8080
-    middlewares:
-      - name: security
-  - match: Host(`cloud.dysnomia.studio`) && PathPrefix(`/`)
-    kind: Rule
-    services:
-    - name: seafile-server-svc
-      port: 8000
+      port: 80
     middlewares:
       - name: security
   tls:

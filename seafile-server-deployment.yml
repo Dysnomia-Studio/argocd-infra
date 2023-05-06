@@ -22,9 +22,7 @@ spec:
         - name: data
           mountPath: /shared
         ports:
-          - containerPort: 8000
-          - containerPort: 8080
-          - containerPort: 8082         
+          - containerPort: 80
         env:
           - name: DB_HOST
             value: seafile-mariadb.seafile.svc.cluster.local
