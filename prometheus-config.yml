@@ -386,6 +386,7 @@ data:
           - https://www.achieve.games
           - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
           - https://cdn.galactae.eu
+          - https://cloud.dysnomia.studio/accounts/login/
           - https://dehash.me
           - https://www.dehash.me
           - https://downstat.us
@@ -426,6 +427,7 @@ data:
           - http://achieve.games
           - http://alchemistry-leaderboard.dysnomia.studio/leaderboard/
           - http://cdn.galactae.eu
+          - http://cloud.dysnomia.studio
           - http://dehash.me
           - http://www.dehash.me
           - http://downstat.us
