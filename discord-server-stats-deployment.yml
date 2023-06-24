@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-server-stats
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: discord-server-stats
+  template:
+    metadata:
+      labels:
+        app: discord-server-stats
+    spec:
+      containers:
+      - image: ghcr.io/elanis/discord-server-stats:develop
+        name: discord-server-stats
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+          - name: DISCORD_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: discordToken
+                optional: false
+          - name: PG_USER
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: username
+                optional: false
+          - name: PG_HOST
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: hostname
+                optional: false
+          - name: PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: database
+                optional: false
+          - name: PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: password
+                optional: false
+          - name: SERVER_LIST
+            valueFrom:
+              secretKeyRef:
+                name: discord-server-stats-4g76tftfc9
+                key: serverList
+                optional: false
+
+      imagePullSecrets:
+      - name: github
