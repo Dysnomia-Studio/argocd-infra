@@ -1,4 +1,4 @@
-# https://raw.githubusercontent.com/longhorn/longhorn/v1.4.1/examples/storageclass.yaml
+# https://raw.githubusercontent.com/longhorn/longhorn/v1.4.2/examples/storageclass.yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
