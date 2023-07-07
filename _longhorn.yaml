@@ -4,14 +4,14 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: longhorn-system
+  name: longhorn-system-restoration
 ---
 # Source: longhorn/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: longhorn-service-account
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -22,7 +22,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: longhorn-support-bundle
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -33,7 +33,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: longhorn-default-setting
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -46,7 +46,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: longhorn-storageclass
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -446,7 +446,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system
+          namespace: longhorn-system-restoration
           path: /v1/webhook/conversion
           port: 9443
       conversionReviewVersions:
@@ -814,7 +814,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system
+          namespace: longhorn-system-restoration
           path: /v1/webhook/conversion
           port: 9443
       conversionReviewVersions:
@@ -1162,7 +1162,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system
+          namespace: longhorn-system-restoration
           path: /v1/webhook/conversion
           port: 9443
       conversionReviewVersions:
@@ -1873,7 +1873,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system
+          namespace: longhorn-system-restoration
           path: /v1/webhook/conversion
           port: 9443
       conversionReviewVersions:
@@ -3280,7 +3280,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system
+          namespace: longhorn-system-restoration
           path: /v1/webhook/conversion
           port: 9443
       conversionReviewVersions:
@@ -3698,7 +3698,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: longhorn-service-account
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 ---
 # Source: longhorn/templates/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -3716,7 +3716,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: longhorn-support-bundle
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 ---
 # Source: longhorn/templates/daemonset-sa.yaml
 apiVersion: v1
@@ -3728,7 +3728,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-manager
   name: longhorn-backend
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3749,7 +3749,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-ui
   name: longhorn-frontend
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   type: ClusterIP
   selector:
@@ -3770,7 +3770,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-conversion-webhook
   name: longhorn-conversion-webhook
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3791,7 +3791,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-admission-webhook
   name: longhorn-admission-webhook
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3812,7 +3812,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-recovery-backend
   name: longhorn-recovery-backend
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3832,7 +3832,7 @@ metadata:
     app.kubernetes.io/instance: longhorn
     app.kubernetes.io/version: v1.4.2
   name: longhorn-engine-manager
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   clusterIP: None
   selector:
@@ -3848,7 +3848,7 @@ metadata:
     app.kubernetes.io/instance: longhorn
     app.kubernetes.io/version: v1.4.2
   name: longhorn-replica-manager
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   clusterIP: None
   selector:
@@ -3865,7 +3865,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-manager
   name: longhorn-manager
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   selector:
     matchLabels:
@@ -3959,7 +3959,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: longhorn-driver-deployer
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -4032,7 +4032,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-recovery-backend
   name: longhorn-recovery-backend
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   replicas: 2
   selector:
@@ -4098,7 +4098,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-ui
   name: longhorn-ui
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   replicas: 2
   selector:
@@ -4161,7 +4161,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-conversion-webhook
   name: longhorn-conversion-webhook
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   replicas: 2
   selector:
@@ -4221,7 +4221,7 @@ metadata:
     app.kubernetes.io/version: v1.4.2
     app: longhorn-admission-webhook
   name: longhorn-admission-webhook
-  namespace: longhorn-system
+  namespace: longhorn-system-restoration
 spec:
   replicas: 2
   selector:
