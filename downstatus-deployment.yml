@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: downstatus
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: downstatus=ghcr.io/dysnomia-studio/downstatus:main
+    argocd-image-updater.argoproj.io/downstatus.update-strategy: digest
+    argocd-image-updater.argoproj.io/downstatus.pull-secret: secret:dysnomia-apps/github
 spec:
   replicas: 1
   revisionHistoryLimit: 3
