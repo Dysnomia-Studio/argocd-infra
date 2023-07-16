@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater
+  namespace: argocd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -16,6 +17,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater
+  namespace: argocd
 rules:
 - apiGroups:
   - ""
@@ -50,6 +52,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater
+  namespace: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -65,6 +68,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater-config
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater-config
+  namespace: argocd
 data:
   # log.level can be one of trace, debug, info, warn or error
   log.level: debug
@@ -76,6 +80,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater-ssh-config
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater-ssh-config
+  namespace: argocd
 ---
 apiVersion: v1
 kind: Secret
@@ -84,6 +89,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater-secret
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater-secret
+  namespace: argocd
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -93,6 +99,7 @@ metadata:
     app.kubernetes.io/name: argocd-image-updater
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater
+  namespace: argocd
 spec:
   selector:
     matchLabels:
