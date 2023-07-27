@@ -29,32 +29,46 @@ spec:
           - name: GALACTAE_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-website-f25h98dgd8
                 key: username
                 optional: false
           - name: GALACTAE_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-website-f25h98dgd8
                 key: hostname
                 optional: false
           - name: GALACTAE_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-website-f25h98dgd8
                 key: database
                 optional: false
           - name: GALACTAE_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-website-f25h98dgd8
                 key: password
                 optional: false
 
-          - name: MAIL_PASSOWRD
+          - name: MAIL_SERVER
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-website-f25h98dgd8
+                key: mail-server
+                optional: false
+
+          - name: MAIL_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-f25h98dgd8
+                key: mail-username
+                optional: false
+
+          - name: MAIL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: galactae-website-f25h98dgd8
                 key: mail-password
                 optional: false
 

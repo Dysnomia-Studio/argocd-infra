@@ -39,7 +39,9 @@ data:
         'id' => getenv('STATS_SQL_USERNAME'),
         'password' => getenv('STATS_SQL_PASSWORD'),
       ],
-      "mail_password" => getenv('MAIL_PASSOWRD'),
+      "mail_server" => getenv('MAIL_SERVER'),
+      "mail_username" => getenv('MAIL_USERNAME'),
+      "mail_password" => getenv('MAIL_PASSWORD'),
 
       "pass-minsize" => 8,
 
