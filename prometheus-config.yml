@@ -257,7 +257,7 @@ data:
       rules:
         - alert: BlackboxProbeFailed
           expr: 'probe_success == 0'
-          for: 0m
+          for: 5m
           labels:
             severity: critical
           annotations:
@@ -275,7 +275,7 @@ data:
 
         - alert: BlackboxSlowProbe
           expr: 'avg_over_time(probe_duration_seconds[5m]) > 5'
-          for: 1m
+          for: 5m
           labels:
             severity: warning
           annotations:
@@ -284,7 +284,7 @@ data:
 
         - alert: BlackboxProbeHttpFailure
           expr: 'probe_http_status_code <= 199 OR probe_http_status_code >= 400'
-          for: 0m
+          for: 5m
           labels:
             severity: critical
           annotations:
