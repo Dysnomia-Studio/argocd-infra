@@ -36,26 +36,38 @@ spec:
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-th6485bc5f
+                name: factory-server-ptb-database-b9gt9gbgm6
                 key: username
                 optional: false
           - name: PG_HOST
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-th6485bc5f
+                name: factory-server-ptb-database-b9gt9gbgm6
                 key: hostname
                 optional: false
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-th6485bc5f
+                name: factory-server-ptb-database-b9gt9gbgm6
                 key: database
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-th6485bc5f
+                name: factory-server-ptb-database-b9gt9gbgm6
                 key: password
+                optional: false
+          - name: UNIT_TEST_CLIENT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-b9gt9gbgm6
+                key: unitTestKey
+                optional: false
+          - name: IS_DEV
+            valueFrom:
+              secretKeyRef:
+                name: factory-server-ptb-database-b9gt9gbgm6
+                key: dev
                 optional: false
 
       imagePullSecrets:
