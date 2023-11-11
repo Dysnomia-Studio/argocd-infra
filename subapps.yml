@@ -9,13 +9,10 @@ spec:
   - list:
       elements:
       - name: 'factory-server-ptb'
-        image: 'ghcr.io/dysnomia-studio/factory-game-server:develop'
   template:
     metadata:
       name: '{{.name}}'
       namespace: argocd
-      annotations:
-        argocd-image-updater.argoproj.io/image-list: '{{.image}}'
     spec:
       project: default
       source:
