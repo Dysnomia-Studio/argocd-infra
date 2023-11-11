@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: subapps
+  namespace: argocd
+spec:
+  goTemplate: true
+  generators:
+  - list:
+      elements:
+      - name: 'factory-server-ptb'
+        image: 'ghcr.io/dysnomia-studio/factory-game-server:develop'
+  template:
+    metadata:
+      name: '{{.name}}'
+      namespace: argocd
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: '{{.image}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/Dysnomia-Studio/argocd-infra.git
+        targetRevision: HEAD
+        path: '{{.name}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: 'dysnomia-apps'
+      syncPolicy:
+        automated: {}

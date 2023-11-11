@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: factory-server-ptb
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: factory-server-ptb=ghcr.io/dysnomia-studio/factory-game-server:develop
+    argocd-image-updater.argoproj.io/factory-server-ptb.update-strategy: digest
+    argocd-image-updater.argoproj.io/factory-server-ptb.pull-secret: secret:dysnomia-apps/github
+
 spec:
   replicas: 1
   revisionHistoryLimit: 3
