@@ -32,5 +32,7 @@ spec:
                 name: stats-writer-credentials-8ckkfd9ff2
                 key: connectionstring
                 optional: false
+          - name: ASPNETCORE_HTTP_PORTS
+            value: '80'
       imagePullSecrets:
       - name: github
