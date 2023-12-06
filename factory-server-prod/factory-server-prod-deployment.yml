@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: factory-server-prod
 spec:
-  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:

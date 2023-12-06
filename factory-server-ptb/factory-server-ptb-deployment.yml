@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: factory-server-ptb
 spec:
-  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
