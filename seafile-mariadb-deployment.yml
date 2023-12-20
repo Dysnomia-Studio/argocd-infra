@@ -23,6 +23,13 @@ spec:
           mountPath: /var/lib/mysql
         ports:
         - containerPort: 3306
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+          limits:
+            cpu: 1000m
+            memory: 1G        
         env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
