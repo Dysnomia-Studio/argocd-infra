@@ -18,5 +18,13 @@ spec:
         name: elanis-cdn
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 15Mi
+          limits:
+            cpu: 300m
+            memory: 500Mi
       imagePullSecrets:
       - name: github
