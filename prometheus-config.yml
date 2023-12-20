@@ -467,6 +467,12 @@ data:
         regex: 'node-exporter'
         action: keep
 
+    - job_name: 'longhorn'
+      scrape_timeout: 300s
+      scrape_interval: 300s
+      static_configs:
+      - targets: ['longhorn-backend.longhorn-system-restoration.svc.cluster.local:9500']
+
     - job_name: 'pgwatch2'
       scrape_timeout: 300s
       scrape_interval: 300s
