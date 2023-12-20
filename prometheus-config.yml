@@ -487,6 +487,9 @@ data:
       - source_labels: [__meta_kubernetes_endpoints_name]
         regex: 'longhorn-backend'
         action: keep
+      - source_labels: [__meta_kubernetes_pod_container_port_number]
+        action: keep
+        regex: 9500
 
     - job_name: 'pgwatch2'
       scrape_timeout: 300s
