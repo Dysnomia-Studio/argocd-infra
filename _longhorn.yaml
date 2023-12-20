@@ -3935,9 +3935,15 @@ metadata:
     app.kubernetes.io/instance: longhorn
     app.kubernetes.io/version: v1.5.3
     app: longhorn-manager
+  annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/port:   '9500'
   name: longhorn-backend
   namespace: longhorn-system-restoration
 spec:
+  selector:
+      app.kubernetes.io/component: longhorn
+      app.kubernetes.io/name: longhorn-backend
   type: ClusterIP
   sessionAffinity: ClientIP
   selector:
