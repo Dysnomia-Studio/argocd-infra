@@ -482,10 +482,10 @@ data:
 
     - job_name: 'longhorn'
       kubernetes_sd_configs:
-        - role: endpoints
+        - role: pod
       relabel_configs:
-      - source_labels: [__meta_kubernetes_endpoints_name]
-        regex: 'longhorn-manager'
+      - source_labels: [__meta_kubernetes_pod_name]
+        regex: 'longhorn-manager(.+)'
         action: keep
 
     - job_name: 'pgwatch2'
