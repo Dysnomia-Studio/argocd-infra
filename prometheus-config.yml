@@ -468,8 +468,12 @@ data:
         action: keep
 
     - job_name: 'longhorn'
-      static_configs:
-      - targets: ['longhorn-backend.longhorn-system-restoration.svc.cluster.local:9500']
+      kubernetes_sd_configs:
+        - role: endpoints
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_endpoints_name]
+        regex: 'longhorn-manager'
+        action: keep
 
     - job_name: 'pgwatch2'
       scrape_timeout: 300s
