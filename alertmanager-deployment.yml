@@ -19,6 +19,7 @@ spec:
       containers:
       - name: alertmanager
         image: prom/alertmanager:latest
+        imagePullPolicy: Always
         args:
           - "--config.file=/etc/alertmanager/config.yml"
           - "--storage.path=/alertmanager"
