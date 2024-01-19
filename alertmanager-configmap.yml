@@ -30,5 +30,21 @@ data:
       discord_configs:
       - webhook_url: https://discord.com/api/webhooks/981996880768663562/t74hro3otyFYeL4k0JbReH52kaoe_MH5r-rqvavwglyn7j_CRNdhCGi0Dj25NOuxaIpK
         send_resolved: true
-        title: '{{ template "slack.title" . }}'
-        message: '{{ template "slack.text" . }}'
+        title: >-
+          [{{ .Status | toUpper }}
+          {{ if eq .Status "firing" }}: {{ .Alerts.Firing | len }}{{ end }}]
+          {{ with (index .GroupLabels.SortedPairs.Values 0) }}
+          {{ . }}
+          {{ end }}
+        message: |-
+          {{ if and .Alerts.Firing (gt (len .Alerts.Firing) 0) }}
+          {{- range .Alerts.Firing }}
+          {{- if gt (len .Annotations) 0 }}
+          {{ range .Annotations.SortedPairs }}
+          - {{ .Name }}: {{ .Value }}
+          {{- end }}
+          {{- else }}
+          (No Annotations)
+          {{- end }}
+          {{- end }}
+          {{- end }}
