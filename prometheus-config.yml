@@ -471,8 +471,6 @@ data:
           - https://cloud.dysnomia.studio/accounts/login/
           - https://dehash.me
           - https://www.dehash.me
-          - https://downstat.us
-          - https://www.downstat.us
           - https://dysnomia.studio
           - https://www.dysnomia.studio
           - https://elanis.eu
@@ -513,8 +511,6 @@ data:
           - http://cloud.dysnomia.studio
           - http://dehash.me
           - http://www.dehash.me
-          - http://downstat.us
-          - http://www.downstat.us
           - http://dysnomia.studio
           - http://www.dysnomia.studio
           - http://elanis.eu
