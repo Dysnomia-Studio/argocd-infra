@@ -10,6 +10,7 @@ spec:
       elements:
       - name: 'achieve-games'
       - name: 'alchemistry-leaderboard'
+      - name: 'dehash-me'
       - name: 'factory-server-ptb'
       - name: 'factory-server-prod'
   template:
