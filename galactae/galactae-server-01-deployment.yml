@@ -16,11 +16,18 @@ spec:
         app: galactae-server-01
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/galactae-server:Beta-0.10.7-rev.20230302a
+      - image: ghcr.io/dysnomia-studio/galactae-server:Beta-0.10.7-rev.20230302b
         name: galactae-server-01
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 75Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
         env:
           - name: GALACTAE_01_SQL_USERNAME
             valueFrom:

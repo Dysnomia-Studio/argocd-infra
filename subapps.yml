@@ -11,6 +11,7 @@ spec:
       - name: 'achieve-games'
       - name: 'alchemistry-leaderboard'
       - name: 'dehash-me'
+      - name: 'galactae'
       - name: 'factory-server-ptb'
       - name: 'factory-server-prod'
   template:

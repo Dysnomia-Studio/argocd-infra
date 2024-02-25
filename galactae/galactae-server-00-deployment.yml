@@ -21,6 +21,13 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 75Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
         env:
           - name: GALACTAE_00_SQL_USERNAME
             valueFrom:

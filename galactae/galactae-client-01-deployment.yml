@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: galactae-client-00
+  name: galactae-client-01
   annotations:
     reloader.stakater.com/auto: "true"
 spec:
@@ -9,15 +9,15 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: galactae-client-00
+      app: galactae-client-01
   template:
     metadata:
       labels:
-        app: galactae-client-00
+        app: galactae-client-01
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/galactae-client:develop
-        name: galactae-client-00
+      - image: ghcr.io/dysnomia-studio/galactae-client:Beta-0.10.7-rev.230303a
+        name: galactae-client-01
         ports:
         - containerPort: 80
         lifecycle:
@@ -25,6 +25,13 @@ spec:
             exec:
               command: ["/bin/sh", "-c", "bash /var/www/applyEnvVariables.sh"]
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 75Mi
+          limits:
+            cpu: 300m
+            memory: 1000Mi
         env:
           - name: GALACTAE_SQL_USERNAME
             valueFrom:
@@ -50,29 +57,29 @@ spec:
                 name: galactae-website-mtckh984h5
                 key: password
                 optional: false
-          
-          - name: GALACTAE_00_SQL_USERNAME
+
+          - name: GALACTAE_01_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-01-hd7tm8c952
                 key: username
                 optional: false
-          - name: GALACTAE_00_SQL_SERVER
+          - name: GALACTAE_01_SQL_SERVER
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-01-hd7tm8c952
                 key: hostname
                 optional: false
-          - name: GALACTAE_00_SQL_DATABASE
+          - name: GALACTAE_01_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-01-hd7tm8c952
                 key: database
                 optional: false
-          - name: GALACTAE_00_SQL_PASSWORD
+          - name: GALACTAE_01_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-01-hd7tm8c952
                 key: password
                 optional: false
 
@@ -102,17 +109,17 @@ spec:
                 optional: false
 
         volumeMounts:
-        - name: galactae-client-00-config
+        - name: galactae-client-01-config
           mountPath: "/var/www/config/"
           readOnly: true
 
-        - name: galactae-client-00-config
+        - name: galactae-client-01-config
           mountPath: "/var/www/app/views/gvars/"
           readOnly: true
 
       imagePullSecrets:
       - name: github
       volumes:
-      - name: galactae-client-00-config
+      - name: galactae-client-01-config
         configMap:
-          name: galactae-client-00-config
+          name: galactae-client-01-config
