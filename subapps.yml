@@ -17,16 +17,40 @@ spec:
       - name: 'dehash-me'
         env: prod
         visibility: public
+      - name: 'discord-server-stats'
+        env: prod
+        visibility: task
       - name: 'dysnomia-website'
         env: prod
         visibility: public
-      - name: 'galactae'
+      - name: 'elanis-cdn'
+        env: prod
+        visibility: public
+      - name: 'factory-server-prod'
         env: prod
         visibility: public
       - name: 'factory-server-ptb'
         env: public-test
         visibility: public
-      - name: 'factory-server-prod'
+      - name: 'galactae'
+        env: all
+        visibility: public
+      - name: 'gaspar'
+        env: prod
+        visibility: public
+      - name: 'lumen-server'
+        env: prod
+        visibility: task
+      - name: 'monitoring'
+        env: all
+        visibility: internal
+      - name: 'portfolio'
+        env: prod
+        visibility: public
+      - name: 'redmine'
+        env: prod
+        visibility: public
+      - name: 'sonarqube'
         env: prod
         visibility: public
   template:
