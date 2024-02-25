@@ -8,6 +8,7 @@ spec:
   generators:
   - list:
       elements:
+      - name: 'achieve-games'
       - name: 'factory-server-ptb'
       - name: 'factory-server-prod'
   template:

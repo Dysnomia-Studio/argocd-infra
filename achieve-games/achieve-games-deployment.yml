@@ -19,6 +19,13 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 2000Mi
+          limits:
+            cpu: 2000m
+            memory: 5000Mi
         env:
           - name: AppSettings__SteamAPIPublisherToken
             valueFrom:
