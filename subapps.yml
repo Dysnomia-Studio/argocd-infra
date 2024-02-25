@@ -11,6 +11,11 @@ spec:
       - name: 'achieve-games'
       - name: 'alchemistry-leaderboard'
       - name: 'dehash-me'
+        env: prod
+        visibility: public
+      - name: 'dysnomia-website'
+        env: prod
+        visibility: public
       - name: 'galactae'
       - name: 'factory-server-ptb'
       - name: 'factory-server-prod'
