@@ -21,7 +21,14 @@ spec:
       containers:
         - name: blackbox-exporter
           image: "prom/blackbox-exporter"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          resources:
+              requests:
+                cpu: 10m
+                memory: 20Mi
+              limits:
+                cpu: 100m
+                memory: 100Mi
           securityContext:
             readOnlyRootFilesystem: true
             runAsNonRoot: true

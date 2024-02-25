@@ -19,6 +19,13 @@ spec:
         ports:
         - containerPort: 9000
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 2000Mi
+          limits:
+            cpu: 2000m
+            memory: 4000Mi
         env:
           - name: SONAR_JDBC_URL
             valueFrom:

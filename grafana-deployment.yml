@@ -91,5 +91,12 @@ spec:
                 key: password
                 optional: false
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 150Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
       imagePullSecrets:
       - name: github

@@ -17,6 +17,13 @@ spec:
       - image: ghcr.io/l-u-m-e-n/lumen-server-docker-seafile-client:master
         name: lumen-server
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 500Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
         env:
           - name: LIBRARY_ID
             valueFrom:

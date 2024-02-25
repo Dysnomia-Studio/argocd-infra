@@ -19,6 +19,13 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        resources:
+            requests:
+              cpu: 10m
+              memory: 100Mi
+            limits:
+              cpu: 300m
+              memory: 250Mi
         env:
           - name: DISCORD_TOKEN
             valueFrom:

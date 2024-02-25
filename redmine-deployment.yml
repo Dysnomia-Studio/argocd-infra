@@ -19,6 +19,13 @@ spec:
         ports:
         - containerPort: 3000
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 500Mi
+          limits:
+            cpu: 1000m
+            memory: 2000Mi
         env:
           - name: REDMINE_DB_POSTGRES
             valueFrom:
