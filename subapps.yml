@@ -9,7 +9,11 @@ spec:
   - list:
       elements:
       - name: 'achieve-games'
+        env: prod
+        visibility: public
       - name: 'alchemistry-leaderboard'
+        env: prod
+        visibility: public
       - name: 'dehash-me'
         env: prod
         visibility: public
@@ -17,12 +21,21 @@ spec:
         env: prod
         visibility: public
       - name: 'galactae'
+        env: prod
+        visibility: public
       - name: 'factory-server-ptb'
+        env: public-test
+        visibility: public
       - name: 'factory-server-prod'
+        env: prod
+        visibility: public
   template:
     metadata:
       name: '{{.name}}'
       namespace: argocd
+      labels: 
+        environment: '{{.env}}'
+        visibility: '{{.visibility}}'
     spec:
       project: default
       source:
