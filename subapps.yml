@@ -9,6 +9,7 @@ spec:
   - list:
       elements:
       - name: 'achieve-games'
+      - name: 'alchemistry-leaderboard'
       - name: 'factory-server-ptb'
       - name: 'factory-server-prod'
   template:
