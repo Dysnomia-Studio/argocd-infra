@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: n8n-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`n8n.dysnomia.studio`) && PathPrefix(`/webhook`)
+    kind: Rule
+    services:
+    - name: n8n-svc
+      port: 80
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

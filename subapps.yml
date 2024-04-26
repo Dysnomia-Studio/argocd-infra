@@ -47,6 +47,9 @@ spec:
       - name: 'monitoring'
         env: all
         visibility: internal
+      - name: 'n8n'
+        env: prod
+        visibility: partial
       - name: 'portfolio'
         env: prod
         visibility: public
