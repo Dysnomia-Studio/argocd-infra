@@ -1,7 +1,40 @@
 apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: security
+  namespace: n8n
+spec:
+  headers:
+    customFrameOptionsValue: sameorigin
+    browserXssFilter: true
+    contentTypeNosniff: true
+
+    #CSP
+    contentSecurityPolicy: "default-src 'self' 'unsafe-inline' 'unsafe-eval'"
+
+    #HSTS Configuration
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 31536000
+
+    #Referrer policy
+    referrerPolicy: strict-origin-when-cross-origin
+
+    #Permissions policy
+    permissionsPolicy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+
+    # Hide powered by headers
+    customResponseHeaders:
+      x-powered-by: ""
+
+# TODO fix this
+---
+
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: n8n-ingressroute
+  namespace: n8n
 spec:
   entryPoints:
   - websecure
