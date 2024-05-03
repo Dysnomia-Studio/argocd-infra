@@ -564,6 +564,10 @@ data:
         action: drop
         regex: 9503
 
+    - job_name: 'n8n'
+      static_configs:
+      - targets: ['n8n-svc.dysnomia-apps.svc.cluster.local']
+
     - job_name: 'pgwatch2'
       scrape_timeout: 300s
       scrape_interval: 300s
