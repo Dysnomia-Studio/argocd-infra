@@ -442,7 +442,7 @@ data:
       rules:
       - alert: N8N failed workflow
         annotations:
-          description: A n8n workflow has failed
+          description: A n8n workflow has failed. Check https://n8n.dysnomia.studio/executions for more details
           summary: A n8n workflow has failed
         expr: changes(n8n_workflow_failed_total[10m]) > 1 
         for: 0m
