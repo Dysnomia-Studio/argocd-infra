@@ -16,7 +16,7 @@ spec:
         app: galactae-client-01
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/galactae-client:Beta-0.10.7-rev.230303a
+      - image: ghcr.io/dysnomia-studio/galactae-client:Beta-0.10.7-rev.240505a
         name: galactae-client-01
         ports:
         - containerPort: 80
