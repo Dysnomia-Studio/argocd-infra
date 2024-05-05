@@ -438,6 +438,18 @@ data:
           issue: Longhorn node {{$labels.node}} experiences high CPU pressure.
           severity: warning
 
+    - name: n8n
+      rules:
+      - alert: N8N failed workflow
+        annotations:
+          description: A n8n workflow has failed
+          summary: A n8n workflow has failed
+        expr: changes(n8n_workflow_failed_total[10m]) > 1 
+        for: 0m
+        labels:
+          issue: A n8n workflow has failed. Check https://n8n.dysnomia.studio/executions for more details
+          severity: warning
+
   prometheus.yml: |
     global:
       scrape_interval: 10s
