@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dysnomia-wiki
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: dysnomia-wiki
+  template:
+    metadata:
+      labels:
+        app: dysnomia-wiki
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/dysnomia-wiki:0.0.1
+        name: dysnomia-wiki
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 5m
+            memory: 15Mi
+          limits:
+            cpu: 300m
+            memory: 500Mi
+      imagePullSecrets:
+      - name: github

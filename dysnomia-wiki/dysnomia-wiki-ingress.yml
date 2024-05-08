@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dysnomia-wiki-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`wiki.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: dysnomia-wiki
+      port: 80
+    middlewares:
+      - name: security
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

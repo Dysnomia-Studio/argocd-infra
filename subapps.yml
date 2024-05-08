@@ -26,6 +26,9 @@ spec:
       - name: 'dysnomia-website'
         env: prod
         visibility: public
+      - name: 'dysnomia-wiki'
+        env: prod
+        visibility: public
       - name: 'elanis-cdn'
         env: prod
         visibility: public
