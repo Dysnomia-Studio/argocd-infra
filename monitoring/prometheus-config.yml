@@ -500,6 +500,7 @@ data:
           - https://www.gaspar.ovh
           - https://m1.dysnomia.studio/swagger/index.html
           - https://sonar.dysnomia.studio
+          - https://wiki.dysnomia.studio
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -543,6 +544,7 @@ data:
           - http://prd.manufacturinc.dysnomia.studio
           - http://ptb.manufacturinc.dysnomia.studio
           - http://sonar.dysnomia.studio
+          - http://wiki.dysnomia.studio
       relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
