@@ -18,6 +18,7 @@ spec:
         name: dysnomia-wiki
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: 5m
