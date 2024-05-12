@@ -2,15 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: stakater-reloader
-  namespace: default
+  namespace: argocd
 spec:
   project: default
   source:
     chart: reloader
     repoURL: https://stakater.github.io/stakater-charts
     targetRevision: 1.0.95
-    helm:
-      releaseName: reloader
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
