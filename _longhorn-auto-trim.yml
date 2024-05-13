@@ -5,8 +5,9 @@ metadata:
   namespace: longhorn-system-restoration
 spec:
   concurrency: 1
-  cron: '35 * * * *'
-  groups: []
+  cron: '0 4 * * *'
+  groups:
+  - default
   labels: {}
   name: fs-trim
   retain: 0
