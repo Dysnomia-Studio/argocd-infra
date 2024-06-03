@@ -15,7 +15,7 @@ spec:
         app: pgwatch
     spec:
       containers:
-      - image: cybertec/pgwatch2-daemon:1.12.0
+      - image: cybertec/pgwatch2-daemon:1.13.0
         name: pgwatch
         ports:
         - containerPort: 9187
