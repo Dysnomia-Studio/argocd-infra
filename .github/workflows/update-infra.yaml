@@ -1,0 +1,23 @@
+name: Force dependabot to re-run
+
+on:
+  repository_dispatch:
+    type: [update-infra]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Update file
+      run: sed -i "s/# lastUpdate.*/# lastUpdate $(date +'%Y-%m-%d %T')/" .github/dependabot.yml
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Request dependabot re-run"
