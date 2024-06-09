@@ -13,7 +13,87 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
+    directory: "/achieve-games"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/alchemistry-leaderboard"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/dehash-me"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/discord-server-stats"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/dysnomia-website"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
     directory: "/dysnomia-wiki"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/elanis-cdn"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/factory-server-prod"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/factory-server-ptb"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/galactae"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/gaspar"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/lumen-server"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/monitoring"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/n8n"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/portfolio"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/redmine"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
+    directory: "/sonarqube"
     registries: "*"
     schedule:
       interval: "monthly"
