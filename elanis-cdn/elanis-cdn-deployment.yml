@@ -14,7 +14,7 @@ spec:
         app: elanis-cdn
     spec:
       containers:
-      - image: ghcr.io/elanis/elanis-cdn:main
+      - image: ghcr.io/elanis/elanis-cdn:2024.06.24
         name: elanis-cdn
         ports:
         - containerPort: 80
