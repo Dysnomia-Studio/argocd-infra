@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: factory-server-ptb
 spec:
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: factory-server-ptb

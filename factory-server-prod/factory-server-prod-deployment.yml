@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: factory-server-prod
 spec:
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: factory-server-prod

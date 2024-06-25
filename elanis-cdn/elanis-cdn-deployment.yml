@@ -4,7 +4,7 @@ metadata:
   name: elanis-cdn
 spec:
   replicas: 1
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: elanis-cdn
