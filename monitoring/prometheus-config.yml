@@ -498,7 +498,6 @@ data:
           - https://www.galactae.space
           - https://gaspar.ovh
           - https://www.gaspar.ovh
-          - https://m1.dysnomia.studio/swagger/index.html
           - https://sonar.dysnomia.studio
           - https://wiki.dysnomia.studio
       relabel_configs:
@@ -540,7 +539,6 @@ data:
           - http://www.galactae.space
           - http://gaspar.ovh
           - http://www.gaspar.ovh
-          - http://m1.dysnomia.studio
           - http://prd.manufacturinc.dysnomia.studio
           - http://ptb.manufacturinc.dysnomia.studio
           - http://sonar.dysnomia.studio
