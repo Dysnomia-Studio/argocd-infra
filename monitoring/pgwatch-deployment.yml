@@ -19,6 +19,7 @@ spec:
         name: pgwatch
         ports:
         - containerPort: 9187
+        - containerPort: 8080
         imagePullPolicy: Always
         resources:
           requests:
