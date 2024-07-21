@@ -14,7 +14,7 @@ spec:
         app: dysnomia-wiki
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/dysnomia-wiki:1.0.3
+      - image: ghcr.io/dysnomia-studio/dysnomia-wiki:1.0.4
         name: dysnomia-wiki
         ports:
         - containerPort: 80
