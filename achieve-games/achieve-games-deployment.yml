@@ -24,7 +24,7 @@ spec:
             cpu: 1000m
             memory: 2000Mi
           limits:
-            cpu: 2000m
+            cpu: 2500m
             memory: 5000Mi
         env:
           - name: AppSettings__SteamAPIPublisherToken
