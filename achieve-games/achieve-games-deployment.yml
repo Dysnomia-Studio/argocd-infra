@@ -22,10 +22,10 @@ spec:
         resources:
           requests:
             cpu: 1000m
-            memory: 3000Mi
+            memory: 4000Mi
           limits:
             cpu: 2500m
-            memory: 6000Mi
+            memory: 7000Mi
         env:
           - name: AppSettings__SteamAPIPublisherToken
             valueFrom:
