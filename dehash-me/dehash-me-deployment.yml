@@ -14,7 +14,7 @@ spec:
         app: dehash-me
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/dehash-me:main
+      - image: ghcr.io/dysnomia-studio/dehash-me:1.0.0
         name: dehash-me
         ports:
         - containerPort: 80
