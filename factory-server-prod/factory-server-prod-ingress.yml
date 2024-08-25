@@ -12,6 +12,12 @@ spec:
     services:
     - name: factory-server-prod-svc
       port: 80
+      sticky:
+        cookie:
+          name: server_id
+          httpOnly: true
+          secure: true
+          sameSite: none
     middlewares:
       - name: security
   tls:
