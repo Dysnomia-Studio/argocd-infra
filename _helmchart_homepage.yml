@@ -62,3 +62,20 @@ spec:
     namespace: 'homepage'
   syncPolicy:
     automated: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home
+  namespace: homepage
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
+      targetPort: http
+  selector:
+    app.kubernetes.io/instance: homepage
+    app.kubernetes.io/name: homepage
+  type: ClusterIP
