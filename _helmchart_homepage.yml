@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: homepage
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homepage
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: homepage
+    repoURL: https://jameswynn.github.io/helm-charts
+    targetRevision: 2.0.1
+    helm:
+      releaseName: homepage
+      valuesObject:
+        bookmarks:
+          - Developer:
+              - Github:
+                  - abbr: GH
+                    href: https://github.com/
+        services:
+          - My First Group:
+              - My First Service:
+                  href: http://localhost/
+                  description: Homepage is awesome
+
+          - My Second Group:
+              - My Second Service:
+                  href: http://localhost/
+                  description: Homepage is the best
+
+          - My Third Group:
+              - My Third Service:
+                  href: http://localhost/
+                  description: Homepage is 😎
+        widgets:
+          # show the kubernetes widget, with the cluster summary and individual nodes
+          - kubernetes:
+              cluster:
+                show: true
+                cpu: true
+                memory: true
+                showLabel: true
+                label: "cluster"
+              nodes:
+                show: true
+                cpu: true
+                memory: true
+                showLabel: true
+          - search:
+              provider: duckduckgo
+              target: _blank
+        kubernetes:
+          mode: cluster
+        settings:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: 'homepage'
+  syncPolicy:
+    automated: {}
