@@ -593,4 +593,4 @@ data:
 
     - job_name: 'traefik'
       static_configs:
-      - targets: ['traefik-prometheus:9100']
+      - targets: ['traefik-private:9100']

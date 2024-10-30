@@ -9,7 +9,7 @@ spec:
     port: 9187
     targetPort: 9187
   - name: pgwatch-ui
-    port: 8081
+    port: 80
     targetPort: 8080
   selector:
     app: pgwatch

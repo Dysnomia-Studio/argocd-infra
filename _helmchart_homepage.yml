@@ -23,15 +23,24 @@ spec:
                   - abbr: GH
                     href: https://github.com/
         services:
-          - My First Group:
-              - My First Service:
-                  href: http://localhost/
-                  description: Homepage is awesome
+          - System dashboards:
+              - ArgoCD:
+                  href: https://argocd-server.argocd.svc.cluster.local/
+                  description: ArgoCD dashboard
+              - Longhorn:
+                  href: http://longhorn-frontend.longhorn-system-restoration.svc.cluster.local/
+                  description: Longhorn dashboard
+              - PGWatch:
+                  href: http://pgwatch-ui.monitoring.svc.cluster.local/
+                  description: PGWatch dashboard
+              - Traefik:
+                  href: http://traefik-private.kube-system.svc.cluster.local/
+                  description: Traefik dashboard
 
-          - My Second Group:
-              - My Second Service:
-                  href: http://localhost/
-                  description: Homepage is the best
+          - Apps:
+              - Grafana:
+                  href: http://grafana.kube-system.svc.cluster.local/login
+                  description: 📊 Stats 📈
 
           - My Third Group:
               - My Third Service:
