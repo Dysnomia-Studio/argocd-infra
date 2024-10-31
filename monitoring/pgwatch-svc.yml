@@ -8,8 +8,18 @@ spec:
   - name: pgwatch-prometheus
     port: 9187
     targetPort: 9187
+  selector:
+    app: pgwatch
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgwatch-ui
+  namespace: kube-system
+spec:
+  ports:
   - name: pgwatch-ui
     port: 80
     targetPort: 8080
   selector:
-    app: pgwatch
+    app: pgwatch2-webui

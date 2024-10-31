@@ -55,7 +55,7 @@ data:
             href: http://longhorn-frontend.longhorn-system-restoration.svc.cluster.local/
             description: Longhorn dashboard
         - PGWatch:
-            href: http://pgwatch.kube-system.svc.cluster.local/ #TODO
+            href: http://pgwatch-ui.kube-system.svc.cluster.local/ #TODO
             description: PGWatch dashboard
         - Traefik:
             href: http://traefik-private.kube-system.svc.cluster.local/dashboard/
