@@ -107,8 +107,6 @@ data:
         expanded: true
         cpu: true
         memory: true
-    - traefik:
-        url: http://traefik-private.kube-system.svc.cluster.local/
     - datetime:
         text_size: xl
         locale: fr
