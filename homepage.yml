@@ -58,7 +58,7 @@ data:
             href: http://pgwatch.kube-system.svc.cluster.local/ #TODO
             description: PGWatch dashboard
         - Traefik:
-            href: http://traefik-private.kube-system.svc.cluster.local/ #TODO
+            href: http://traefik-private.kube-system.svc.cluster.local/dashboard/
             description: Traefik dashboard
 
     - Apps:
