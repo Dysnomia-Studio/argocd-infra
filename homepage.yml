@@ -55,15 +55,15 @@ data:
             href: http://longhorn-frontend.longhorn-system-restoration.svc.cluster.local/
             description: Longhorn dashboard
         - PGWatch:
-            href: http://pgwatch-ui.monitoring.svc.cluster.local/
+            href: http://pgwatch.kube-system.svc.cluster.local/ #TODO
             description: PGWatch dashboard
         - Traefik:
-            href: http://traefik-private.kube-system.svc.cluster.local/
+            href: http://traefik-private.kube-system.svc.cluster.local/ #TODO
             description: Traefik dashboard
 
     - Apps:
         - Grafana:
-            href: http://grafana.kube-system.svc.cluster.local/login
+            href: http://grafana.kube-system.svc.cluster.local/
             description: 📊 Stats 📈
 
     - My Third Group:
@@ -221,12 +221,7 @@ metadata:
   namespace: homepage
 spec:
   ports:
-    - name: http
-      port: 80
-      targetPort: 3000
-      protocol: TCP
-      targetPort: http
+  - port: 80
+    targetPort: 3000
   selector:
-    app.kubernetes.io/instance: homepage
     app.kubernetes.io/name: homepage
-  type: ClusterIP
