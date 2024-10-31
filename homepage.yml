@@ -65,11 +65,30 @@ data:
         - Grafana:
             href: http://grafana.kube-system.svc.cluster.local/
             description: 📊 Stats 📈
+        - Redmine:
+            href: https://bugs.dysnomia.studio
+            description: Bug/Issues/Time tracker
+        - Sonarqube:
+            href: https://sonar.dysnomia.studio
+            description: Code quality
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+    - Websites:
+        - Achieve games:
+            href: https://achieve.games/
+            description: Achievements goes brrr
+        - Dehash.me:
+            href: https://dehash.me/
+            description: Hashing goes brrr
+        - Dysnomia:
+            href: https://dysnomia.studio
+        - "Dysnomia's Wiki":
+            href: https://wiki.dysnomia.studio
+        - Galactae:
+            href: https://galactae.eu
+        - Gaspar:
+            href: https://gaspar.ovh
+        - Portfolio:
+            href: https://elanis.eu
   widgets.yaml: |
     - kubernetes:
         cluster:
@@ -88,9 +107,16 @@ data:
         expanded: true
         cpu: true
         memory: true
-    - search:
-        provider: duckduckgo
-        target: _blank
+    - traefik:
+        url: http://traefik-private.kube-system.svc.cluster.local/
+    - datetime:
+        text_size: xl
+        locale: fr
+        format:
+          dateStyle: long
+          timeStyle: short
+          hourCycle: h23
+# Authentik
   docker.yaml: ""
 ---
 apiVersion: rbac.authorization.k8s.io/v1
