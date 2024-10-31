@@ -6,7 +6,6 @@ metadata:
 spec:
   entryPoints:
   - websecure
-  - http3
   routes:
   - match: Host(`elanis.eu`) || Host(`elanis.fr`) || Host(`www.elanis.eu`) || Host(`www.elanis.fr`)
     kind: Rule
