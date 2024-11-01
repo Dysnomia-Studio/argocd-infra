@@ -41,6 +41,9 @@ spec:
       - name: 'gaspar'
         env: prod
         visibility: public
+      - name: 'homepage'
+        env: all
+        visibility: internal
       - name: 'lumen-server'
         env: prod
         visibility: task
