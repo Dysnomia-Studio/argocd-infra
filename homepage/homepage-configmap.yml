@@ -34,7 +34,9 @@ data:
         - Traefik:
             href: http://traefik-private.kube-system.svc.cluster.local/dashboard/
             description: Traefik dashboard
-
+        - Vault:
+            href: https://vault-ui.vault.svc.cluster.local:8200/
+            description: Vault UI
     - Apps:
         - Grafana:
             href: http://grafana.kube-system.svc.cluster.local/
