@@ -59,6 +59,9 @@ spec:
       - name: 'redmine'
         env: prod
         visibility: public
+      - name: 'seafile'
+        env: prod
+        visibility: partial
       - name: 'sonarqube'
         env: prod
         visibility: public
