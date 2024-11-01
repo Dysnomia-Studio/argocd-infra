@@ -15,7 +15,7 @@ spec:
         app: pgwatch2-webui
     spec:
       containers:
-      - image: cybertec/pgwatch2-webui:1.13.0
+      - image: cybertec/pgwatch2-webui:1.14.0
         name: pgwatch2-webui
         ports:
         - containerPort: 8080
