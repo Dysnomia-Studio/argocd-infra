@@ -2,7 +2,7 @@ apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
   name: fs-trim
-  namespace: longhorn-system-restoration
+  namespace: longhorn-system
 spec:
   concurrency: 1
   cron: '0 4 * * *'
