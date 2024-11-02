@@ -18,8 +18,9 @@ data:
   bookmarks.yaml: |
     - Developer:
         - Github:
-            - abbr: GH
-              href: https://github.com/
+            - abbr: PR
+              description: GitHub's Pull Requests to review
+              href: https://github.com/pulls?q=is%3Aopen+is%3Apr+user%3AElanis+user%3ADysnomia-Studio+user%3AL-U-M-E-N+archived%3Afalse+
   services.yaml: |
     - System dashboards:
         - ArgoCD:
@@ -29,7 +30,7 @@ data:
             href: http://longhorn-frontend.longhorn-system-restoration.svc.cluster.local/
             description: Longhorn dashboard
         - PGWatch:
-            href: http://pgwatch-ui.kube-system.svc.cluster.local/ #TODO
+            href: http://pgwatch-ui.kube-system.svc.cluster.local/
             description: PGWatch dashboard
         - Traefik:
             href: http://traefik-private.kube-system.svc.cluster.local/dashboard/
@@ -41,6 +42,9 @@ data:
         - Grafana:
             href: http://grafana.kube-system.svc.cluster.local/
             description: 📊 Stats 📈
+        - N8N:
+            href: http://n8n.dysnomia.studio
+            description: ⚙️ Automation
         - Redmine:
             href: https://bugs.dysnomia.studio
             description: Bug/Issues/Time tracker
