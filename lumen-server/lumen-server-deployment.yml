@@ -28,7 +28,7 @@ spec:
           - name: LIBRARY_ID
             valueFrom:
               secretKeyRef:
-                name: lumen-server-k6mgf92mch
+                name: lumen-server-52g7ddt57c
                 key: libraryId
                 optional: false
           - name: SERVER_PORT
@@ -36,19 +36,19 @@ spec:
           - name: SERVER_URL
             valueFrom:
               secretKeyRef:
-                name: lumen-server-k6mgf92mch
+                name: lumen-server-52g7ddt57c
                 key: serverUrl
                 optional: false
           - name: USERNAME
             valueFrom:
               secretKeyRef:
-                name: lumen-server-k6mgf92mch
+                name: lumen-server-52g7ddt57c
                 key: username
                 optional: false
           - name: PASSWORD
             valueFrom:
               secretKeyRef:
-                name: lumen-server-k6mgf92mch
+                name: lumen-server-52g7ddt57c
                 key: password
                 optional: false
       imagePullSecrets:
