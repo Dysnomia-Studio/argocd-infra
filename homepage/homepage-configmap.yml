@@ -27,7 +27,7 @@ data:
             href: https://argocd-server.argocd.svc.cluster.local/
             description: ArgoCD dashboard
         - Longhorn:
-            href: http://longhorn-frontend.longhorn-system-restoration.svc.cluster.local/
+            href: http://longhorn-frontend.longhorn-system.svc.cluster.local/
             description: Longhorn dashboard
         - PGWatch:
             href: http://pgwatch-ui.kube-system.svc.cluster.local/
