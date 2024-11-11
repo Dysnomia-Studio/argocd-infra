@@ -23,17 +23,17 @@ spec:
           - name: GF_INSTALL_PLUGINS
             value: 'petrslavotinek-carpetplot-panel'
 
-          - name: DS_DMARCREPORTS_USERNAME
+          - name: DS_FACTORY_USERNAME
             valueFrom:
               secretKeyRef:
                 name: grafana-bhc6hgmdk6
                 key: username
                 optional: false
-          - name: DS_DMARCREPORTS_HOST
+          - name: DS_FACTORY_HOST
             value:  postgres.dysnomia-apps.svc.cluster.local
-          - name: DS_DMARCREPORTS_DB
-            value: dmarcreports
-          - name: DS_DMARCREPORTS_PASSWORD
+          - name: DS_FACTORY_DB
+            value: factory-prod
+          - name: DS_FACTORY_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: grafana-bhc6hgmdk6
@@ -90,6 +90,7 @@ spec:
                 name: grafana-bhc6hgmdk6
                 key: password
                 optional: false
+
         imagePullPolicy: Always
         resources:
           requests:
