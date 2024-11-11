@@ -43,6 +43,10 @@ spec:
             value: 'true'
           - name: N8N_METRICS_INCLUDE_QUEUE_METRICS
             value: 'true'
+          - name: N8N_METRICS_INCLUDE_CACHE_METRICS
+            value: 'true'
+          - name: N8N_METRICS_INCLUDE_MESSAGE_EVENT_BUS_METRICS
+            value: 'true'
           - name: WEBHOOK_URL
             value: https://n8n.dysnomia.studio/
           - name: GENERIC_TIMEZONE
