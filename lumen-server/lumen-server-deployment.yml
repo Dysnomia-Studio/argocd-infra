@@ -20,10 +20,10 @@ spec:
         resources:
           requests:
             cpu: 250m
-            memory: 500Mi
+            memory: 1500Mi
           limits:
             cpu: 2000m
-            memory: 3500Mi
+            memory: 4000Mi
         env:
           - name: LIBRARY_ID
             valueFrom:
