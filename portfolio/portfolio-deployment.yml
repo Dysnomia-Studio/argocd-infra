@@ -14,7 +14,7 @@ spec:
         app: portfolio
     spec:
       containers:
-      - image: ghcr.io/elanis/portfolio:6.2.6
+      - image: ghcr.io/elanis/portfolio:6.2.7
         name: portfolio
         ports:
         - containerPort: 80
