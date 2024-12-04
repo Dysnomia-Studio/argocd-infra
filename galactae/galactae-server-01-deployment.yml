@@ -16,7 +16,7 @@ spec:
         app: galactae-server-01
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/galactae-server:0.10.7
+      - image: ghcr.io/dysnomia-studio/galactae-server:0.10.8
         name: galactae-server-01
         ports:
         - containerPort: 80
