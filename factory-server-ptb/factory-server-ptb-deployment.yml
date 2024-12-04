@@ -13,7 +13,7 @@ spec:
         app: factory-server-ptb
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/factory-game-server:develop
+      - image: ghcr.io/dysnomia-studio/factory-game-server:0.3.3
         name: factory-server-ptb
         ports:
         - containerPort: 80
