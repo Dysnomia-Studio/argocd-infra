@@ -80,6 +80,8 @@ spec:
         path: '{{.name}}'
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: 'dysnomia-apps'
+        namespace: '{{.name}}'
       syncPolicy:
         automated: {}
+        syncOptions:
+          - CreateNamespace=true
