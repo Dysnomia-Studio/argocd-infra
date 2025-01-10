@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blackbox-exporter
-  namespace: kube-system
+  namespace: monitoring
   labels:
     k8s-app: blackbox-exporter
   annotations:

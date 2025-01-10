@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: blackbox-exporter
-  namespace: kube-system
+  namespace: monitoring
   labels:
     k8s-app: blackbox-exporter
 spec:
