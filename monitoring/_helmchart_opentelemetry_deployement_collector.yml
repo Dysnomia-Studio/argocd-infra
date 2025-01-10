@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opentelemetry-deployment-collector
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  sources:
+    - chart: opentelemetry-collector
+      repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
+      targetRevision: 0.111.1
+      helm:
+        values: |
+          mode: deployment
+
+          image:
+            repository: otel/opentelemetry-collector-k8s
+
+          # We only want one of these collectors - any more and we'd produce duplicate data
+          replicaCount: 1
+
+          presets:
+            # enables the k8sclusterreceiver and adds it to the metrics pipelines
+            clusterMetrics:
+              enabled: true
+            # enables the k8sobjectsreceiver to collect events only and adds it to the logs pipelines
+            kubernetesEvents:
+              enabled: true
+          ## The chart only includes the loggingexporter by default
+          ## If you want to send your data somewhere you need to
+          ## configure an exporter, such as the otlpexporter
+          # config:
+          # exporters:
+          #   otlp:
+          #     endpoint: "<SOME BACKEND>"
+          # service:
+          #   pipelines:
+          #     traces:
+          #       exporters: [ otlp ]
+          #     metrics:
+          #       exporters: [ otlp ]
+          #     logs:
+          #       exporters: [ otlp ]
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
