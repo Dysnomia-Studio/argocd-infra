@@ -29,52 +29,39 @@ spec:
           - name: PUBLISHER_KEY
             valueFrom:
               secretKeyRef:
-                name: steam-hdcdk47mmg
+                name: steam-2h7c6httht
                 key: dysnomia-publisher-key
-                optional: false
-          - name: APP_ID
-            valueFrom:
-              secretKeyRef:
-                name: steam-hdcdk47mmg
-                key: factory-appid
                 optional: false
 
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
+                name: factory-server-ptb-database-app
                 key: username
                 optional: false
           - name: PG_HOST
-            valueFrom:
-              secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
-                key: hostname
-                optional: false
+            value: factory-server-ptb-database-rw.factory-server-ptb.svc.cluster.local
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
-                key: database
+                name: factory-server-ptb-database-app
+                key: dbname
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
+                name: factory-server-ptb-database-app
                 key: password
                 optional: false
+
           - name: UNIT_TEST_CLIENT_TOKEN
             valueFrom:
               secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
-                key: unitTestKey
+                name: unit-test-dfdmgfcgfd
+                key: key
                 optional: false
           - name: IS_DEV
-            valueFrom:
-              secretKeyRef:
-                name: factory-server-ptb-database-b9gt9gbgm6
-                key: dev
-                optional: false
+            value: 'true'
 
       imagePullSecrets:
       - name: github
