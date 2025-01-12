@@ -13,7 +13,5 @@ spec:
       port: 80
     middlewares:
       - name: security
-    middlewares:
-      - name: security
   tls:
     certResolver: le
