@@ -14,7 +14,7 @@ spec:
         app: alchemistry-leaderboard
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/alchemistry-leaderboard:1.2.0
+      - image: ghcr.io/dysnomia-studio/alchemistry-leaderboard:1.3.0
         name: alchemistry-leaderboard
         ports:
         - containerPort: 80
