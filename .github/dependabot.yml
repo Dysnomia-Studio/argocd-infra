@@ -68,6 +68,11 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
+    directory: "/homepage"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
     directory: "/lumen-server"
     registries: "*"
     schedule:
