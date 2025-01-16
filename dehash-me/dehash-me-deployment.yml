@@ -27,18 +27,27 @@ spec:
             cpu: 1000m
             memory: 500Mi
         env:
-          - name: AppSettings__ConnectionString
+          - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: dehash-me-t748kcffb6
-                key: database
+                name: dehash-me-database-app
+                key: username
                 optional: false
-          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
+          - name: PG_HOST
+            value: dehash-me-database-rw.dehash-me.svc.cluster.local
+          - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: connectionstring
+                name: dehash-me-database-app
+                key: dbname
                 optional: false
+          - name: PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: dehash-me-database-app
+                key: password
+                optional: false
+
           - name: ASPNETCORE_HTTP_PORTS
             value: '80'
       imagePullSecrets:
