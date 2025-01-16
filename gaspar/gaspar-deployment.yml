@@ -14,7 +14,7 @@ spec:
         app: gaspar
     spec:
       containers:
-      - image: ghcr.io/elanis/gaspar:3.2.0
+      - image: ghcr.io/elanis/gaspar:3.3.0
         name: gaspar
         ports:
         - containerPort: 80
@@ -27,18 +27,6 @@ spec:
             cpu: 1000m
             memory: 500Mi
         env:
-          - name: AppSettings__ConnectionString
-            valueFrom:
-              secretKeyRef:
-                name: gaspar-c85m8h78dc
-                key: database
-                optional: false
-          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: connectionstring
-                optional: false
           - name: ASPNETCORE_HTTP_PORTS
             value: '80'
       imagePullSecrets:
