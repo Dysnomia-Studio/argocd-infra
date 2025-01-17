@@ -28,27 +28,23 @@ spec:
             memory: 2000Mi
         env:
           - name: REDMINE_DB_POSTGRES
-            valueFrom:
-              secretKeyRef:
-                name: redmine-h7ckmc79k5
-                key: hostname
-                optional: false
+            value: redmine-database-rw.redmine.svc.cluster.local
           - name: REDMINE_DB_USERNAME
             valueFrom:
               secretKeyRef:
-                name: redmine-h7ckmc79k5
+                name: redmine-database-app
                 key: username
                 optional: false
           - name: REDMINE_DB_DATABASE
             valueFrom:
               secretKeyRef:
-                name: redmine-h7ckmc79k5
-                key: database
+                name: redmine-database-app
+                key: dbname
                 optional: false
           - name: REDMINE_DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: redmine-h7ckmc79k5
+                name: redmine-database-app
                 key: password
                 optional: false
           - name: REDMINE_PLUGINS_MIGRATE
