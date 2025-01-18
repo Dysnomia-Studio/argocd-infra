@@ -14,7 +14,7 @@ spec:
         app: achieve-games
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/achieve-games:1.2.1
+      - image: ghcr.io/dysnomia-studio/achieve-games:1.3.1
         name: achieve-games
         ports:
         - containerPort: 80
@@ -30,38 +30,53 @@ spec:
           - name: AppSettings__SteamAPIPublisherToken
             valueFrom:
               secretKeyRef:
-                name: steam-hdcdk47mmg
+                name: steam-2tkft4dc4c
                 key: dysnomia-publisher-key
                 optional: false
           - name: AppSettings__SteamWebAPIToken
             valueFrom:
               secretKeyRef:
-                name: steam-hdcdk47mmg
+                name: steam-2tkft4dc4c
                 key: elanis-webapi-key
                 optional: false
 
-          - name: AppSettings__ConnectionString
+          - name: AppSettings__PG_USER
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f86m258df
-                key: database
+                name: achieve-games-database-app
+                key: username
                 optional: false
+          - name: AppSettings__PG_HOST
+            value: achieve-games-database-rw.achieve-games.svc.cluster.local
+          - name: AppSettings__PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-database-app
+                key: dbname
+                optional: false
+          - name: AppSettings__PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: achieve-games-database-app
+                key: password
+                optional: false
+
           - name: AppSettings__RedirectURI
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f86m258df
+                name: achieve-games-9thbfmmh29
                 key: redirecturi
                 optional: false
           - name: AppSettings__GithubToken
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f86m258df
+                name: achieve-games-9thbfmmh29
                 key: githubtoken
                 optional: false
           - name: AppSettings__DiscordToken
             valueFrom:
               secretKeyRef:
-                name: achieve-games-6f86m258df
+                name: achieve-games-9thbfmmh29
                 key: discordToken
                 optional: false
 
@@ -76,13 +91,6 @@ spec:
               secretKeyRef:
                 name: battlenet-29k8ckd5g2
                 key: clientsecret
-                optional: false
-
-          - name: DYSNOMIA_COMMON_STATS_CONNECTIONSTRING
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: connectionstring
                 optional: false
                 
           - name: ASPNETCORE_HTTP_PORTS
