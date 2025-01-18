@@ -28,21 +28,17 @@ spec:
             memory: 4000Mi
         env:
           - name: SONAR_JDBC_URL
-            valueFrom:
-              secretKeyRef:
-                name: sonarqube-k4mfgbb88k
-                key: url
-                optional: false
+            value: jdbc:postgresql://sonarqube-database-rw.sonarqube.svc.cluster.local/sonarqube
           - name: SONAR_JDBC_USERNAME
             valueFrom:
               secretKeyRef:
-                name: sonarqube-k4mfgbb88k
+                name: sonarqube-database-app
                 key: username
                 optional: false
           - name: SONAR_JDBC_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: sonarqube-k4mfgbb88k
+                name: sonarqube-database-app
                 key: password
                 optional: false
           - name: SONAR_WEB_JAVAADDITIONALOPTS 
