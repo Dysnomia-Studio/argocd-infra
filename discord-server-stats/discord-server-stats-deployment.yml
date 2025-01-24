@@ -30,37 +30,33 @@ spec:
           - name: DISCORD_TOKEN
             valueFrom:
               secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
+                name: discord-server-stats-fbm74m57c8
                 key: discordToken
                 optional: false
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
+                name: discord-server-stats-database-app
                 key: username
                 optional: false
           - name: PG_HOST
-            valueFrom:
-              secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
-                key: hostname
-                optional: false
+            value: discord-server-stats-database-rw.discord-server-stats.svc.cluster.local
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
-                key: database
+                name: discord-server-stats-database-app
+                key: dbname
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
+                name: discord-server-stats-database-app
                 key: password
                 optional: false
           - name: SERVER_LIST
             valueFrom:
               secretKeyRef:
-                name: discord-server-stats-4g76tftfc9
+                name: discord-server-stats-fbm74m57c8
                 key: serverList
                 optional: false
 
