@@ -506,7 +506,7 @@ data:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: blackbox-exporter.kube-system.svc.cluster.local:9115
+        replacement: blackbox-exporter.monitoring.svc.cluster.local:9115
 
     - job_name: 'blackbox_301'
       metrics_path: /probe
@@ -549,11 +549,13 @@ data:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: blackbox-exporter.kube-system.svc.cluster.local:9115
+        replacement: blackbox-exporter.monitoring.svc.cluster.local:9115
 
     - job_name: 'longhorn'
       kubernetes_sd_configs:
         - role: endpoints
+          namespaces:
+            names: ['longhorn-system']
       relabel_configs:
       - source_labels: [__meta_kubernetes_endpoints_name]
         regex: 'longhorn-backend'
@@ -579,4 +581,4 @@ data:
 
     - job_name: 'traefik'
       static_configs:
-      - targets: ['traefik-private:9100']
+      - targets: ['traefik-private.kube-system.svc.cluster.local:9100']
