@@ -10,6 +10,7 @@ data:
     - '/etc/alertmanager/*.tmpl'
     route:
       receiver: discord
+      group_by: ['alertname']
       group_wait: 10s
       repeat_interval: 1m
  
