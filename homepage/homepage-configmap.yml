@@ -37,7 +37,7 @@ data:
             href: http://grafana.monitoring.svc.cluster.local/
             description: 📊 Stats 📈
         - N8N:
-            href: http://n8n.dysnomia.studio
+            href: http://n8n.n8n.svc.cluster.local/
             description: ⚙️ Automation
         - Redmine:
             href: https://bugs.dysnomia.studio
