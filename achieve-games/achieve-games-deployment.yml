@@ -14,7 +14,7 @@ spec:
         app: achieve-games
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/achieve-games:1.3.2
+      - image: ghcr.io/dysnomia-studio/achieve-games:1.3.3
         name: achieve-games
         ports:
         - containerPort: 80
