@@ -34,13 +34,32 @@ spec:
               cpu: 1000m
               memory: 1Gi
         volumeMounts:
-        - name: config-volume
+        - name: config-volume-modified
           mountPath: /etc/alertmanager
         - name: alertmanager
           mountPath: /alertmanager
+      initContainers:
+      - name: init-myservice
+        image: busybox:1.28
+        command: ['sh', '-c', "sed -e \"s|ALERTMANAGER_DISCORD_WEBHOOK|$ALERTMANAGER_DISCORD_WEBHOOK|g\" /etc/alertmanager-old/config.yml > /etc/alertmanager/config.yml"]
+        env:
+          - name: ALERTMANAGER_DISCORD_WEBHOOK
+            valueFrom:
+              secretKeyRef:
+                name: alertmanager-cfb5gfd7m9
+                key: discord_webhook
+                optional: false
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/alertmanager-old
+        - name: config-volume-modified
+          mountPath: /etc/alertmanager
       volumes:
       - name: config-volume
         configMap:
           name: alertmanager-config
+      - name: config-volume-modified
+        emptyDir: {}
       - name: alertmanager
         emptyDir: {}
+
