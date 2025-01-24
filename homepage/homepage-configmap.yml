@@ -34,7 +34,7 @@ data:
             description: Traefik dashboard
     - Apps:
         - Grafana:
-            href: http://grafana.kube-system.svc.cluster.local/
+            href: http://grafana.monitoring.svc.cluster.local/
             description: 📊 Stats 📈
         - N8N:
             href: http://n8n.dysnomia.studio
