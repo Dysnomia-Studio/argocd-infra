@@ -572,12 +572,6 @@ data:
       static_configs:
       - targets: ['n8n-svc.n8n.svc.cluster.local']
 
-    - job_name: 'pgwatch2'
-      scrape_timeout: 300s
-      scrape_interval: 300s
-      static_configs:
-      - targets: ['pgwatch:9187']
-
     - job_name: 'prometheus'
       scrape_interval: 5s
       static_configs:
