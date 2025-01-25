@@ -16,7 +16,7 @@ data:
         method: POST
         body: |
           {
-            "content": "{{ .app.metadata.name }}: {{ .app.status.sync.status }}",
+            "content": "Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}.",
             "embeds": [
               {
                 "title": "Revision {{ .app.status.sync.revision }}",
@@ -24,7 +24,7 @@ data:
                 "author": {
                   "name": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
                 },
-                "url": "{{ (trimAll ".git" .app.spec.source.repoURL) }}/-/commit/{{ .app.status.sync.revision }}"
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}"
               }
             ]
           }
