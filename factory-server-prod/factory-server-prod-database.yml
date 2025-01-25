@@ -1,0 +1,25 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: factory-server-prod-database
+spec:
+  instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+
+  bootstrap:
+    initdb:
+      database: factory-server-prod
+      owner: factory-server-prod
+
+  enableSuperuserAccess: true
+
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: 250m
+    limits:
+      memory: "1Gi"
+      cpu: '1'
+
+  storage:
+    size: 1Gi

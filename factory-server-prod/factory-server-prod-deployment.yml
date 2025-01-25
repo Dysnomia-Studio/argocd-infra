@@ -29,38 +29,28 @@ spec:
           - name: PUBLISHER_KEY
             valueFrom:
               secretKeyRef:
-                name: steam-hdcdk47mmg
+                name: steam-2h7c6httht
                 key: dysnomia-publisher-key
-                optional: false
-          - name: APP_ID
-            valueFrom:
-              secretKeyRef:
-                name: steam-hdcdk47mmg
-                key: factory-appid
                 optional: false
 
           - name: PG_USER
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-58b5fgtfkb
+                name: factory-server-prod-database-app
                 key: username
                 optional: false
           - name: PG_HOST
-            valueFrom:
-              secretKeyRef:
-                name: factory-server-prod-database-58b5fgtfkb
-                key: hostname
-                optional: false
+            value: factory-server-prod-database-rw.factory-server-prod.svc.cluster.local
           - name: PG_DB
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-58b5fgtfkb
-                key: database
+                name: factory-server-prod-database-app
+                key: dbname
                 optional: false
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: factory-server-prod-database-58b5fgtfkb
+                name: factory-server-prod-database-app
                 key: password
                 optional: false
 
