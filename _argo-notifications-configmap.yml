@@ -10,56 +10,258 @@ data:
       - name: Content-Type
         value: application/json
     url: $DISCORD_WEBHOOK_URL
-  template.notify-discord: |
+# Templates from https://github.com/M0NsTeRRR/homelabv3-infra/
+  template.notify-discord-created: |
     webhook:
       discord:
         method: POST
         body: |
           {
-            "content": "Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}.",
             "embeds": [
               {
-                "title": "Revision {{ .app.status.sync.revision }}",
-                "description": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}",
-                "author": {
-                  "name": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
-                },
-                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}"
+                "title": "{{ .app.metadata.name }}: has been created 🆕",
+                "description": "Application has been created",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "color": 3447003
               }
             ]
           }
-  # these are the same triggers from the catalog, but sending the custom Discord template
+  template.notify-discord-deleted: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }}: has been deleted ❌",
+                "description": "Application has been deleted",
+                "color": 3447003
+              }
+            ]
+          }
+  template.notify-discord-deployed: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "New version of {{ .app.metadata.name }} is up and running ✅",
+                "description": "Application is now running new version of deployments manifests",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 5763719
+              }
+            ]
+          }
+  template.notify-discord-degraded: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }} has degraded ⚠️",
+                "description": "Application has degraded",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 16776960
+              }
+            ]
+          }
+  template.notify-discord-failed: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }} sync failed ❌",
+                "description": "The sync operation of application has failed",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Error",
+                    "value": "{{ .app.status.operationState.message }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 15548997
+              }
+            ]
+          }
+  template.notify-discord-running: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }} start syncing 🔄",
+                "description": "Start syncing application",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 3447003
+              }
+            ]
+          }
+  template.notify-discord-unknown: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }} sync status is unknown ⚠️",
+                "description": "Application sync is Unknown",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 16776960
+              }
+            ]
+          }
+  template.notify-discord-succeeded: |
+    webhook:
+      discord:
+        method: POST
+        body: |
+          {
+            "embeds": [
+              {
+                "title": "{{ .app.metadata.name }} has been successfully synced ✅",
+                "description": "Application has been successfully synced",
+                "url": "https://argocd-server.argocd.svc.cluster.local/applications/{{.app.metadata.name}}",
+                "fields": [
+                  {
+                    "name": "Sync Status",
+                    "value": "{{ .app.status.sync.status }}"
+                  },
+                  {
+                    "name": "Author",
+                    "value": "{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Author }}"
+                  },
+                  {
+                    "name": "Revision",
+                    "value": "[{{ (call .repo.GetCommitMetadata .app.status.sync.revision).Message }}]({{ (trimAll ".git" .app.spec.source.repoURL) }}/commit/{{ .app.status.sync.revision }})"
+                  }
+                ],
+                "color": 5763719
+              }
+            ]
+          }
+
+  trigger.on-created: |
+    - description: Application is created.
+      oncePer: app.metadata.name
+      send:
+      - notify-discord-created
+      when: "true"
+  trigger.on-deleted: |
+    - description: Application is deleted.
+      oncePer: app.metadata.name
+      send:
+      - notify-discord-deleted
+      when: app.metadata.deletionTimestamp != nil
   trigger.on-deployed: |
     - description: Application is synced and healthy. Triggered once per commit.
       oncePer: app.status.operationState.syncResult.revision
       send:
-      - notify-discord
+      - notify-discord-deployed
       when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status
         == 'Healthy'
   trigger.on-health-degraded: |
     - description: Application has degraded
       send:
-      - notify-discord
+      - notify-discord-degraded
       when: app.status.health.status == 'Degraded'
   trigger.on-sync-failed: |
     - description: Application syncing has failed
       send:
-      - notify-discord
+      - notify-discord-failed
       when: app.status.operationState.phase in ['Error', 'Failed']
   trigger.on-sync-running: |
     - description: Application is being synced
       send:
-      - notify-discord
+      - notify-discord-running
       when: app.status.operationState.phase in ['Running']
   trigger.on-sync-status-unknown: |
     - description: Application status is 'Unknown'
       send:
-      - notify-discord
+      - notify-discord-unknown
       when: app.status.sync.status == 'Unknown'
   trigger.on-sync-succeeded: |
     - description: Application syncing has succeeded
       send:
-      - notify-discord
+      - notify-discord-succeeded
       when: app.status.operationState.phase in ['Succeeded']
 
   subscriptions: |
