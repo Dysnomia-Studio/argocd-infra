@@ -9,12 +9,10 @@ data:
     headers:
       - name: Content-Type
         value: application/json
-    url: "https://discord.com"
-  # shouldn’t the path be in a `Secret`?
+    url: $DISCORD_WEBHOOK_URL
   template.notify-discord: |
     webhook:
       discord:
-        path: "/api/webhooks/1126890624436678667/XwsU0MlyQWhFS90dHmrsuqwLhjctQgMNLlTd4mtc6l-f6Ebz49Sw0g0yWL2laZfGls3m?wait=true"
         method: POST
         body: |
           {
