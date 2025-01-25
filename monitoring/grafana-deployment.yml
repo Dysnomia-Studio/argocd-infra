@@ -30,9 +30,9 @@ spec:
                 key: username
                 optional: false
           - name: DS_FACTORY_HOST
-            value:  postgres.dysnomia-apps.svc.cluster.local
+            value: factory-server-prod-database-ro.factory-server-prod.svc.cluster.local
           - name: DS_FACTORY_DB
-            value: factory-prod
+            value: factory-server-prod
           - name: DS_FACTORY_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -47,9 +47,9 @@ spec:
                 key: username
                 optional: false
           - name: DS_LUMEN_HOST
-            value:  postgres.dysnomia-apps.svc.cluster.local
+            value: lumen-server-database-ro.lumen-server.svc.cluster.local
           - name: DS_LUMEN_DB
-            value: lumen
+            value: lumen-server
           - name: DS_LUMEN_PASSWORD
             valueFrom:
               secretKeyRef:
@@ -64,27 +64,10 @@ spec:
                 key: username
                 optional: false
           - name: DS_REDMINE_HOST
-            value:  postgres.dysnomia-apps.svc.cluster.local
+            value: redmine-database-ro.redmine.svc.cluster.local
           - name: DS_REDMINE_DB
             value: redmine
           - name: DS_REDMINE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: grafana-bhc6hgmdk6
-                key: password
-                optional: false
-
-          - name: DS_STATS_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: grafana-bhc6hgmdk6
-                key: username
-                optional: false
-          - name: DS_STATS_HOST
-            value:  postgres.dysnomia-apps.svc.cluster.local
-          - name: DS_STATS_DB
-            value: stats
-          - name: DS_STATS_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: grafana-bhc6hgmdk6
