@@ -22,12 +22,6 @@ data:
         //'ru' => 'русский'
       ],
       "cacheBlacklist" => [],
-      "stats" => [
-        'host' => getenv('STATS_SQL_SERVER'),
-        'db' => getenv('STATS_SQL_DATABASE'),
-        'id' => getenv('STATS_SQL_USERNAME'),
-        'password' => getenv('STATS_SQL_PASSWORD'),
-      ],
     );
 
   gvars.php: |

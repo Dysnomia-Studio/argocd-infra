@@ -32,50 +32,42 @@ spec:
           - name: GALACTAE_01_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-01-hd7tm8c952
+                name: galactae-01-database-app
                 key: username
                 optional: false
           - name: GALACTAE_01_SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: galactae-01-hd7tm8c952
-                key: hostname
-                optional: false
+            value: galactae-01-database-rw.galactae.svc.cluster.local
           - name: GALACTAE_01_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-01-hd7tm8c952
-                key: database
+                name: galactae-01-database-app
+                key: dbname
                 optional: false
           - name: GALACTAE_01_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-01-hd7tm8c952
+                name: galactae-01-database-app
                 key: password
                 optional: false
 
           - name: GALACTAE_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-main-database-app
                 key: username
                 optional: false
           - name: GALACTAE_SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: galactae-website-mtckh984h5
-                key: hostname
-                optional: false
+            value: galactae-main-database-rw.galactae.svc.cluster.local
           - name: GALACTAE_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
-                key: database
+                name: galactae-main-database-app
+                key: dbname
                 optional: false
           - name: GALACTAE_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-main-database-app
                 key: password
                 optional: false
 

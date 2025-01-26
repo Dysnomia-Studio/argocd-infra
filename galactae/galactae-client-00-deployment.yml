@@ -16,7 +16,7 @@ spec:
         app: galactae-client-00
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/galactae-client:develop
+      - image: ghcr.io/dysnomia-studio/galactae-client:Beta-0.10.7-rev.250126a
         name: galactae-client-00
         ports:
         - containerPort: 80
@@ -36,78 +36,44 @@ spec:
           - name: GALACTAE_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-main-database-app
                 key: username
                 optional: false
           - name: GALACTAE_SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: galactae-website-mtckh984h5
-                key: hostname
-                optional: false
+            value: galactae-main-database-rw.galactae.svc.cluster.local
           - name: GALACTAE_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
-                key: database
+                name: galactae-main-database-app
+                key: dbname
                 optional: false
           - name: GALACTAE_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-website-mtckh984h5
+                name: galactae-main-database-app
                 key: password
                 optional: false
           
           - name: GALACTAE_00_SQL_USERNAME
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-00-database-app
                 key: username
                 optional: false
           - name: GALACTAE_00_SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: galactae-00-9ffbtbgd87
-                key: hostname
-                optional: false
+            value: galactae-00-database-rw.galactae.svc.cluster.local
           - name: GALACTAE_00_SQL_DATABASE
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
-                key: database
+                name: galactae-00-database-app
+                key: dbname
                 optional: false
           - name: GALACTAE_00_SQL_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: galactae-00-9ffbtbgd87
+                name: galactae-00-database-app
                 key: password
                 optional: false
-
-          - name: STATS_SQL_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: username
-                optional: false
-          - name: STATS_SQL_SERVER
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: hostname
-                optional: false
-          - name: STATS_SQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: database
-                optional: false
-          - name: STATS_SQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: stats-writer-credentials-8ckkfd9ff2
-                key: password
-                optional: false
-
         volumeMounts:
         - name: galactae-client-00-config
           mountPath: "/var/www/config/"

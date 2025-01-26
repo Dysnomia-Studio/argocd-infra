@@ -1,0 +1,25 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: galactae-00-database
+spec:
+  instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2
+
+  bootstrap:
+    initdb:
+      database: galactae-00
+      owner: galactae-00
+
+  enableSuperuserAccess: true
+
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: 250m
+    limits:
+      memory: "1Gi"
+      cpu: '1'
+
+  storage:
+    size: 3Gi
