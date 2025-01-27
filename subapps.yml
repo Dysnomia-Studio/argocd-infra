@@ -52,7 +52,7 @@ spec:
         visibility: internal
       - name: 'n8n'
         env: prod
-        visibility: partial
+        visibility: internal
       - name: 'portfolio'
         env: prod
         visibility: public
