@@ -40,7 +40,7 @@ spec:
           mountPath: /alertmanager
       initContainers:
       - name: init-myservice
-        image: busybox:1.28
+        image: busybox:1.37
         command: ['sh', '-c', "sed -e \"s|ALERTMANAGER_DISCORD_WEBHOOK|$ALERTMANAGER_DISCORD_WEBHOOK|g\" /etc/alertmanager-old/config.yml > /etc/alertmanager/config.yml"]
         env:
           - name: ALERTMANAGER_DISCORD_WEBHOOK
