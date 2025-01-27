@@ -76,7 +76,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/Dysnomia-Studio/argocd-infra.git
-        targetRevision: HEAD
+        targetRevision: new-infra
         path: '{{.name}}'
       destination:
         server: 'https://kubernetes.default.svc'
