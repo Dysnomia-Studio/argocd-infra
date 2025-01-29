@@ -22,4 +22,4 @@ spec:
       cpu: '1'
 
   storage:
-    size: 7Gi
+    size: 8Gi
