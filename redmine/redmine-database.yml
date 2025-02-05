@@ -15,10 +15,10 @@ spec:
 
   resources:
     requests:
-      memory: "512Mi"
-      cpu: 100m
+      memory: 250Mi
+      cpu: 25m
     limits:
-      memory: "1Gi"
+      memory: 1Gi
       cpu: '1'
 
   storage:
