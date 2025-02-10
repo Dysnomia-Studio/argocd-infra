@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: lumen-server-database
 spec:
-  instances: 3
+  instances: 2
   imageName: ghcr.io/cloudnative-pg/postgresql:17.2
 
   bootstrap:
@@ -22,4 +22,4 @@ spec:
       cpu: '1'
 
   storage:
-    size: 3Gi
+    size: 5Gi
