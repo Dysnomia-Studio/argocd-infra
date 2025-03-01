@@ -1,55 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lumen-server
+  name: lumen-server-v6
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: lumen-server
+      app: lumen-server-v6
   template:
     metadata:
       labels:
-        app: lumen-server
+        app: lumen-server-v6
     spec:
       containers:
-      - image: ghcr.io/l-u-m-e-n/lumen-server-docker-seafile-client:master
-        name: lumen-server
+      - image: ghcr.io/dysnomia-studio/lumen-server:main
+        name: lumen-server-v6
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: 100m
-            memory: 1000Mi
+            cpu: 25m
+            memory: 250Mi
           limits:
-            cpu: 2000m
-            memory: 4000Mi
+            cpu: 1000m
+            memory: 500Mi
         env:
-          - name: LIBRARY_ID
+          - name: Modules__YoutubeModule__PLAYLIST_ID
             valueFrom:
               secretKeyRef:
                 name: lumen-server-b4t76tg2dh
-                key: libraryId
+                key: youtube_PlaylistId
                 optional: false
-          - name: SERVER_PORT
-            value: "443"
-          - name: SERVER_URL
+          - name: Modules__YoutubeModule__API_KEY
             valueFrom:
               secretKeyRef:
                 name: lumen-server-b4t76tg2dh
-                key: serverUrl
-                optional: false
-          - name: USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: lumen-server-b4t76tg2dh
-                key: username
-                optional: false
-          - name: PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: lumen-server-b4t76tg2dh
-                key: password
+                key: youtube_APIKey
                 optional: false
 
           - name: PG_USER
