@@ -28,7 +28,7 @@ spec:
           - name: LIBRARY_ID
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: libraryId
                 optional: false
           - name: SERVER_PORT
@@ -36,19 +36,19 @@ spec:
           - name: SERVER_URL
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: serverUrl
                 optional: false
           - name: USERNAME
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: username
                 optional: false
           - name: PASSWORD
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: password
                 optional: false
 

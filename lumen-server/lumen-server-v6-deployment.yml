@@ -28,14 +28,20 @@ spec:
           - name: Modules__YoutubeModule__PLAYLIST_ID
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: youtube_PlaylistId
                 optional: false
           - name: Modules__YoutubeModule__API_KEY
             valueFrom:
               secretKeyRef:
-                name: lumen-server-b4t76tg2dh
+                name: lumen-server-8b7b9bc97m
                 key: youtube_APIKey
+                optional: false
+          - name: ApiKey
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-8b7b9bc97m
+                key: apiKey
                 optional: false
 
           - name: PG_USER
