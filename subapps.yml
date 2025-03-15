@@ -46,7 +46,7 @@ spec:
         visibility: internal
       - name: 'lumen-server'
         env: prod
-        visibility: task
+        visibility: public
       - name: 'monitoring'
         env: all
         visibility: internal

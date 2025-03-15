@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: lumen-server-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`lumen.elanis.eu`)
+    kind: Rule
+    services:
+    - name: lumen-server
+      port: 80
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

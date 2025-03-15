@@ -64,5 +64,7 @@ spec:
                 name: lumen-server-database-app
                 key: password
                 optional: false
+          - name: ASPNETCORE_HTTP_PORTS
+            value: '80'
       imagePullSecrets:
       - name: github
