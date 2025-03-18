@@ -19,7 +19,7 @@ spec:
       cpu: 250m
     limits:
       memory: "1Gi"
-      cpu: '1'
+      cpu: '2'
 
   storage:
     size: 5Gi
