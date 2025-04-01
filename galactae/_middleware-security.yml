@@ -8,7 +8,7 @@ spec:
     contentTypeNosniff: true
 
     #CSP
-    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' 00-srv.galactae.eu 01-srv.galactae.eu wss://00-srv.galactae.eu wss://01-srv.galactae.eu; frame-ancestors file: localhost"
+    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' 00-srv.galactae.eu 01-srv.galactae.eu wss://00-srv.galactae.eu wss://01-srv.galactae.eu; frame-ancestors file: localhost galactae.eu 00-dev.galactae.eu 01-milkyway.galactae.eu"
 
     #HSTS Configuration
     stsIncludeSubdomains: true
