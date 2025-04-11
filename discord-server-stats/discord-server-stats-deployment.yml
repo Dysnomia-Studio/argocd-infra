@@ -14,7 +14,7 @@ spec:
         app: discord-server-stats
     spec:
       containers:
-      - image: ghcr.io/elanis/discord-server-stats:1.2.0
+      - image: debian:latest
         name: discord-server-stats
         ports:
         - containerPort: 80
