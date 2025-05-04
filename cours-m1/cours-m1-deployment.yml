@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cours-m1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: cours-m1
+  template:
+    metadata:
+      labels:
+        app: cours-m1
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/cours-m1:main
+        name: cours-m1
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 200m
+            memory: 200Mi
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        env:
+          - name: AppSettings__PG_USER
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-database-app
+                key: username
+                optional: false
+          - name: AppSettings__PG_HOST
+            value: cours-m1-database-rw.cours-m1.svc.cluster.local
+          - name: AppSettings__PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-database-app
+                key: dbname
+                optional: false
+          - name: AppSettings__PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-database-app
+                key: password
+                optional: false
+
+          - name: AppSettings__IGDBClientId
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-99kcc7kmgh
+                key: igdbclientid
+                optional: false
+          - name: AppSettings__IGDBClientSecret
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-99kcc7kmgh
+                key: igdbclientsecret
+                optional: false
+          - name: AppSettings__JwtIssuer
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-99kcc7kmgh
+                key: jwtissuer
+                optional: false
+          - name: AppSettings__JwtKey
+            valueFrom:
+              secretKeyRef:
+                name: cours-m1-99kcc7kmgh
+                key: jwtkey
+                optional: false
+                
+          - name: ASPNETCORE_HTTP_PORTS
+            value: '80'
+
+      imagePullSecrets:
+      - name: github
