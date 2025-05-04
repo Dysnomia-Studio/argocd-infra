@@ -14,7 +14,7 @@ spec:
         app: cours-m1
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/cours-m1:main
+      - image: ghcr.io/dysnomia-studio/cours-m1-backend:main
         name: cours-m1
         ports:
         - containerPort: 80
