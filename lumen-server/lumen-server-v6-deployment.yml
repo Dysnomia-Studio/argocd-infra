@@ -28,31 +28,31 @@ spec:
           - name: Modules__GoodReadsModule__GOODREADS_RSS_URL
             valueFrom:
               secretKeyRef:
-                name: lumen-server-829d6g9bk6
+                name: lumen-server-tkh56tgg99
                 key: goodreads_RSSURL
                 optional: false
           - name: Modules__NotABotModule__NAB_SERVER_LIST
             valueFrom:
               secretKeyRef:
-                name: lumen-server-829d6g9bk6
+                name: lumen-server-tkh56tgg99
                 key: notabot_serverlist
                 optional: false
           - name: Modules__YoutubeModule__PLAYLIST_ID
             valueFrom:
               secretKeyRef:
-                name: lumen-server-829d6g9bk6
+                name: lumen-server-tkh56tgg99
                 key: youtube_PlaylistId
                 optional: false
           - name: Modules__YoutubeModule__API_KEY
             valueFrom:
               secretKeyRef:
-                name: lumen-server-829d6g9bk6
+                name: lumen-server-tkh56tgg99
                 key: youtube_APIKey
                 optional: false
           - name: ApiKey
             valueFrom:
               secretKeyRef:
-                name: lumen-server-829d6g9bk6
+                name: lumen-server-tkh56tgg99
                 key: apiKey
                 optional: false
 
