@@ -78,5 +78,8 @@ spec:
                 optional: false
           - name: ASPNETCORE_HTTP_PORTS
             value: '80'
+
+          - name: LOGGING__LOGLEVEL__Lumen
+            value: 'Trace'
       imagePullSecrets:
       - name: github
