@@ -12,7 +12,7 @@ spec:
   sources:
     - chart: opentelemetry-collector
       repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-      targetRevision: 0.111.1
+      targetRevision: 0.125.0
       helm:
         values: |
           mode: daemonset
