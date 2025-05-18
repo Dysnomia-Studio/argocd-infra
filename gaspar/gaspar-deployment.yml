@@ -14,7 +14,7 @@ spec:
         app: gaspar
     spec:
       containers:
-      - image: ghcr.io/elanis/gaspar:3.3.2
+      - image: ghcr.io/elanis/gaspar:3.3.3
         name: gaspar
         ports:
         - containerPort: 80
