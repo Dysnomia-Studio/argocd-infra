@@ -12,3 +12,4 @@ spec:
       - "--certificatesresolvers.le.acme.tlschallenge=true"
       - "--certificatesresolvers.le.acme.caServer=https://acme-v02.api.letsencrypt.org/directory"
       - "--providers.kubernetescrd.allowCrossNamespace=true"
+      - "--api.insecure=true"
