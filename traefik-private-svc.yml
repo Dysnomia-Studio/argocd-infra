@@ -10,7 +10,7 @@ spec:
     targetPort: 9100
   - name: ui
     port: 80
-    targetPort: 9000
+    targetPort: 8080
   selector:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
