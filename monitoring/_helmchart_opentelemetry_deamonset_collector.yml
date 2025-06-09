@@ -44,8 +44,6 @@ spec:
                 verbosity: detailed
               prometheus:
                 endpoint: "0.0.0.0:11234"
-                tls:
-                  insecure: true
                 send_timestamps: true
                 metric_expiration: 5m
                 enable_open_metrics: true
