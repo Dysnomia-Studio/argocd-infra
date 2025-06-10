@@ -13,4 +13,3 @@ spec:
       - "--certificatesresolvers.le.acme.caServer=https://acme-v02.api.letsencrypt.org/directory"
       - "--providers.kubernetescrd.allowCrossNamespace=true"
       - "--api.insecure=true"
-      - "--entryPoints.websecure.http.middlewares=dysnomia-apps-security@kubernetescrd"
