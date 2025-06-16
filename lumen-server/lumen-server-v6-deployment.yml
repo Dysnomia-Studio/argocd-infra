@@ -87,7 +87,10 @@ spec:
               fieldRef:
                 fieldPath: status.hostIP
           - name: OTEL_EXPORTER_OTLP_ENDPOINT
-            value: http://$(NODE_IP):4138
+            value: http://$(NODE_IP):4137
+          - name: OTEL_EXPORTER_OTLP_PROTOCOL
+            value: grpc
+
 
       imagePullSecrets:
       - name: github
