@@ -82,7 +82,12 @@ spec:
           - name: LOGGING__LOGLEVEL__Lumen
             value: 'Trace'
 
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
           - name: OTEL_EXPORTER_OTLP_ENDPOINT
-            value: localhost:11234
+            value: http://$(NODE_IP):4138
+
       imagePullSecrets:
       - name: github
