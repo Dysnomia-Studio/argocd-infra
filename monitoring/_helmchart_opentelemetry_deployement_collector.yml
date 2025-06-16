@@ -36,7 +36,7 @@ spec:
               debug:
                 verbosity: detailed
               prometheus:
-                endpoint: "0.0.0.0:11234"
+                endpoint: "0.0.0.0:11235"
                 send_timestamps: true
                 metric_expiration: 5m
                 enable_open_metrics: true
@@ -79,6 +79,11 @@ spec:
               enabled: false
             metrics:
               enabled: false
+            prom-metrics:
+              enabled: true
+              containerPort: 11235
+              servicePort: 11235
+              protocol: TCP
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
