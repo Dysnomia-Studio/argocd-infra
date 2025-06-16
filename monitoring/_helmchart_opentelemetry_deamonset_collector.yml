@@ -28,8 +28,8 @@ spec:
             kubeletMetrics:
               enabled: true
             # Enables the filelogreceiver and adds it to the logs pipelines
-            logsCollection:
-              enabled: true
+            #logsCollection:
+            #  enabled: true
             # Enable host metrics
             hostMetrics:
               enabled: true
