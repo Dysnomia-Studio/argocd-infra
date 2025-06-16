@@ -56,19 +56,9 @@ spec:
 
           ports:
             otlp:
-              enabled: true
-              containerPort: 44317
-              servicePort: 44317
-              hostPort: 44317
-              protocol: TCP
-              # nodePort: 30317
-              appProtocol: grpc
+              enabled: false
             otlp-http:
-              enabled: true
-              containerPort: 44318
-              servicePort: 44318
-              hostPort: 44318
-              protocol: TCP
+              enabled: false
             jaeger-compact:
               enabled: false
             jaeger-thrift:
