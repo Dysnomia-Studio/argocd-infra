@@ -577,6 +577,7 @@ data:
       - targets: ['opentelemetry-deployment-collector-opentelemetry-collector.monitoring.svc.cluster.local:11235']
 
     - job_name: 'opentelemetry-collector-deamonset'
+      scrape_interval: 15s
       kubernetes_sd_configs:
         - role: pod
           selectors:
