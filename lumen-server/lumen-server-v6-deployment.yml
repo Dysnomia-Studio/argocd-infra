@@ -81,5 +81,8 @@ spec:
 
           - name: LOGGING__LOGLEVEL__Lumen
             value: 'Trace'
+
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: localhost:11234
       imagePullSecrets:
       - name: github
