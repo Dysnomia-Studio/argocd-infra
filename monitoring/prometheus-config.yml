@@ -172,15 +172,6 @@ data:
             summary: Prometheus large scrape (instance {{ $labels.instance }})
             description: "Prometheus has many scrapes that exceed the sample limit\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-        - alert: PrometheusTargetScrapeDuplicate
-          expr: 'increase(prometheus_target_scrapes_sample_duplicate_timestamp_total[5m]) > 0'
-          for: 0m
-          labels:
-            severity: warning
-          annotations:
-            summary: Prometheus target scrape duplicate (instance {{ $labels.instance }})
-            description: "Prometheus has many samples rejected due to duplicate timestamps but different values\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-
         - alert: PrometheusTsdbCheckpointCreationFailures
           expr: 'increase(prometheus_tsdb_checkpoint_creations_failed_total[1m]) > 0'
           for: 0m
