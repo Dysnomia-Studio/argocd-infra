@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: galactae-01-database
 spec:
-  instances: 3
+  instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:17.5
 
   bootstrap:
