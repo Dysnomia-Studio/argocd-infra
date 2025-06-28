@@ -14,7 +14,7 @@ spec:
         app: dysnomia-website
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/dysnomia-website:3.3.0
+      - image: ghcr.io/dysnomia-studio/dysnomia-website:3.3.1
         name: dysnomia-website
         ports:
         - containerPort: 80
