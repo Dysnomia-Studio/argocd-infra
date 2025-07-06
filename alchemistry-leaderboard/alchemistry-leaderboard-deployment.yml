@@ -14,7 +14,7 @@ spec:
         app: alchemistry-leaderboard
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/alchemistry-leaderboard:1.3.1
+      - image: ghcr.io/dysnomia-studio/alchemistry-leaderboard:1.4.0
         name: alchemistry-leaderboard
         ports:
         - containerPort: 80
@@ -33,7 +33,15 @@ spec:
                 name: steam-2h7c6httht
                 key: dysnomia-publisher-key
                 optional: false
+
           - name: ASPNETCORE_HTTP_PORTS
             value: '80'
+
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://$(NODE_IP):4317
       imagePullSecrets:
       - name: github
