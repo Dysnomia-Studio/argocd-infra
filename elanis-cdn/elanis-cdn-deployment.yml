@@ -26,5 +26,10 @@ spec:
           limits:
             cpu: 300m
             memory: 500Mi
+        env:
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
       imagePullSecrets:
       - name: github
