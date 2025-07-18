@@ -17,7 +17,7 @@ spec:
         app: prometheus
     spec:
       containers:
-      - image: prom/prometheus:v3.4.2
+      - image: prom/prometheus:v3.5.0
         name: prometheus
         args: [ "--config.file=/etc/prometheus/prometheus.yml", "--log.level=debug" ]
         ports:
