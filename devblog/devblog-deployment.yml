@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devblog
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: devblog
+  template:
+    metadata:
+      labels:
+        app: devblog
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/devblog:1.0.17
+        name: devblog
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 15Mi
+          limits:
+            cpu: 300m
+            memory: 500Mi
+      imagePullSecrets:
+      - name: github

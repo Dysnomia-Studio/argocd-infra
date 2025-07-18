@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: security
+spec:
+  headers:
+    customFrameOptionsValue: sameorigin
+    browserXssFilter: true
+    contentTypeNosniff: true
+
+    #CSP
+    contentSecurityPolicy: "default-src 'self' data: 01.cdn.elanis.eu 03.cdn.elanis.eu cdn.galactae.eu 'unsafe-inline' pagead2.googlesyndication.com storage.googleapis.com googleads.g.doubleclick.net ajax.googleapis.com 00-srv.galactae.eu 01-srv.galactae.eu wss://00-srv.galactae.eu wss://01-srv.galactae.eu; frame-ancestors file: localhost"
+
+    #HSTS Configuration
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 31536000
+
+    #Referrer policy
+    referrerPolicy: strict-origin-when-cross-origin
+
+    #Permissions policy
+    permissionsPolicy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+
+    # Hide powered by headers
+    customResponseHeaders:
+      x-powered-by: ""
