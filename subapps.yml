@@ -20,6 +20,9 @@ spec:
       - name: 'dehash-me'
         env: prod
         visibility: public
+      - name: 'devblog'
+        env: prod
+        visibility: public
       - name: 'discord-server-stats'
         env: prod
         visibility: task
