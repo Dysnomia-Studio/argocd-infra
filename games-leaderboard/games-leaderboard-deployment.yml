@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: games-leaderboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: games-leaderboard
+  template:
+    metadata:
+      labels:
+        app: games-leaderboard
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/games-leaderboard:1.5.0
+        name: games-leaderboard
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 25m
+            memory: 250Mi
+          limits:
+            cpu: 1000m
+            memory: 500Mi
+        env:
+          - name: AppSettings__PUBLISHER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: steam-2h7c6httht
+                key: dysnomia-publisher-key
+                optional: false
+
+          - name: ASPNETCORE_HTTP_PORTS
+            value: '80'
+
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://$(NODE_IP):4317
+      imagePullSecrets:
+      - name: github

@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: games-leaderboard-ingressroute
+
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`leaderboard.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: games-leaderboard-svc
+      port: 80
+    middlewares:
+      - name: security
+  tls:
+    certResolver: le

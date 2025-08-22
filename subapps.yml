@@ -41,6 +41,9 @@ spec:
       - name: 'galactae'
         env: all
         visibility: public
+      - name: 'games-leaderboard'
+        env: prod
+        visibility: public
       - name: 'gaspar'
         env: prod
         visibility: public
