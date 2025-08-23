@@ -13,7 +13,7 @@ spec:
         app: factory-server-prod
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/factory-game-server:0.3.5
+      - image: ghcr.io/dysnomia-studio/factory-game-server:0.3.7
         name: factory-server-prod
         ports:
         - containerPort: 80
