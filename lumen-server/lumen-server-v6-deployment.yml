@@ -25,40 +25,52 @@ spec:
             cpu: 1000m
             memory: 500Mi
         env:
+          - name: Modules__EnedisModule__PERSON_NUMBER
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-9g47g86kg2
+                key: enedis_PERSON_NUMBER
+                optional: false
+          - name: Modules__EnedisModule__PRM_NUMBER
+            valueFrom:
+              secretKeyRef:
+                name: lumen-server-9g47g86kg2
+                key: enedis_PRM_NUMBER
+                optional: false
           - name: Modules__GoodReadsModule__GOODREADS_RSS_URL
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: goodreads_RSSURL
                 optional: false
           - name: Modules__GRDFModule__PCE_NUMBER
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: grdf_PCE_NUMBER
                 optional: false
           - name: Modules__NotABotModule__NAB_SERVER_LIST
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: notabot_serverlist
                 optional: false
           - name: Modules__YoutubeModule__PLAYLIST_ID
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: youtube_PlaylistId
                 optional: false
           - name: Modules__YoutubeModule__API_KEY
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: youtube_APIKey
                 optional: false
           - name: ApiKey
             valueFrom:
               secretKeyRef:
-                name: lumen-server-6gfhkkm678
+                name: lumen-server-9g47g86kg2
                 key: apiKey
                 optional: false
 
