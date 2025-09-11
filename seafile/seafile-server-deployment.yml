@@ -15,7 +15,7 @@ spec:
         app: seafile-server
     spec:
       containers:
-      - image: docker.seadrive.org/seafileltd/seafile-pro-mc:11.0.19
+      - image: seafileltd/seafile-pro-mc:12.0.16
         name: seafile-server
         imagePullPolicy: Always
         resources:
