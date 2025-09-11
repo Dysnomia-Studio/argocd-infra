@@ -36,7 +36,7 @@ spec:
           - name: DB_ROOT_PASSWD
             valueFrom:
               secretKeyRef:
-                name: seafile-777kg4k255
+                name: seafile-5464h59g97
                 key: mysql-password
                 optional: false
           - name: TIME_ZONE
@@ -44,18 +44,22 @@ spec:
           - name: SEAFILE_ADMIN_EMAIL
             valueFrom:
               secretKeyRef:
-                name: seafile-777kg4k255
+                name: seafile-5464h59g97
                 key: admin-mail
                 optional: false
           - name: SEAFILE_ADMIN_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-777kg4k255
+                name: seafile-5464h59g97
                 key: admin-password
                 optional: false
+          - name: JWT_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: seafile-5464h59g97
+                key: jwt-private-key
+                optional: false
 
-      imagePullSecrets:
-      - name: docker-seadrive
 
       volumes:
       - name: data
