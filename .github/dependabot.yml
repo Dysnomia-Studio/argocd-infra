@@ -6,11 +6,6 @@ registries:
     url: https://ghcr.io
     username: ${{ secrets.GHP_USER }}
     password: ${{ secrets.GHP_TOKEN }}
-  seadrive:
-    type: docker-registry
-    url: https://docker.seadrive.org
-    username: ${{ secrets.SEADRIVE_USER }}
-    password: ${{ secrets.SEADRIVE_TOKEN }}
 updates:
   - package-ecosystem: "docker"
     directory: "/"
