@@ -14,9 +14,6 @@ spec:
       - name: 'alchemistry-leaderboard'
         env: prod
         visibility: public
-      - name: 'dehash-me'
-        env: prod
-        visibility: public
       - name: 'devblog'
         env: prod
         visibility: public

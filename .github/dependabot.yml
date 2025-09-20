@@ -23,11 +23,6 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
-    directory: "/dehash-me"
-    registries: "*"
-    schedule:
-      interval: "monthly"
-  - package-ecosystem: "docker"
     directory: "/devblog"
     registries: "*"
     schedule:
