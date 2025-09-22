@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: discord-redirect-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`discord.dysnomia.studio`)
+    kind: Rule
+    services:
+    - name: dysnomia-website
+      port: 80
+    middlewares:
+      - name: discord-redirect
+  tls:
+    certResolver: le
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: discord-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://discord\.dysnomia\.studio(.*)$
+    replacement: https://discord.com/invite/c8aARey
+    permanent: true
