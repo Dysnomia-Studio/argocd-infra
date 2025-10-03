@@ -42,8 +42,8 @@ spec:
                 key: password
                 optional: false
           - name: SONAR_WEB_JAVAADDITIONALOPTS 
-            value: "-javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-25.7.0.jar=web"
+            value: "-javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-25.9.0.jar=web"
           - name: SONAR_CE_JAVAADDITIONALOPTS 
-            value: "-javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-25.7.0.jar=ce"
+            value: "-javaagent:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin-25.9.0.jar=ce"
       imagePullSecrets:
       - name: github
