@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: www-elanis-fr-redirect-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`www.elanis.fr`)
+    kind: Rule
+    services:
+    - name: portfolio-svc
+      port: 80
+    middlewares:
+      - name: www-elanis-fr-redirect
+  tls:
+    certResolver: le
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: www-elanis-fr-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://www\.elanis\.fr(.*)$
+    replacement: https://elanis.eu${1}
+    permanent: true
