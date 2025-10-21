@@ -1,0 +1,14 @@
+# Enable rate-limit
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: rate-limit
+spec:
+  rateLimit:
+    average: 15
+    period: 1s
+    burst: 50
+    sourceCriterion:
+      ipStrategy:
+        depth: 1
+        ipv6Subnet: 64
