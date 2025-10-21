@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`elanis.eu`) || Host(`www.elanis.eu`)
+  - match: Host(`elanis.eu`)
     kind: Rule
     services:
     - name: portfolio-svc
