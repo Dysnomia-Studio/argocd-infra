@@ -476,9 +476,6 @@ data:
           - https://dysnomia.studio
           - https://www.dysnomia.studio
           - https://elanis.eu
-          - https://www.elanis.eu
-          - https://elanis.fr
-          - https://www.elanis.fr
           - https://galactae.com
           - https://www.galactae.com
           - https://galactae.eu
@@ -518,8 +515,11 @@ data:
           - http://www.dysnomia.studio
           - http://elanis.eu
           - http://www.elanis.eu
+          - https://www.elanis.eu
           - http://elanis.fr
+          - https://elanis.fr
           - http://www.elanis.fr
+          - https://www.elanis.fr
           - http://galactae.com
           - http://www.galactae.com
           - http://galactae.eu
