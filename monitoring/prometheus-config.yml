@@ -476,12 +476,7 @@ data:
           - https://dysnomia.studio
           - https://www.dysnomia.studio
           - https://elanis.eu
-          - https://galactae.com
-          - https://www.galactae.com
           - https://galactae.eu
-          - https://www.galactae.eu
-          - https://galactae.space
-          - https://www.galactae.space
           - https://gaspar.ovh
           - https://www.gaspar.ovh
           - https://leaderboard.dysnomia.studio/alchemistry/game/
@@ -521,11 +516,16 @@ data:
           - http://www.elanis.fr
           - https://www.elanis.fr
           - http://galactae.com
+          - https://galactae.com
           - http://www.galactae.com
+          - https://www.galactae.com
           - http://galactae.eu
           - http://www.galactae.eu
+          - https://www.galactae.eu
           - http://galactae.space
+          - https://galactae.space
           - http://www.galactae.space
+          - https://www.galactae.space
           - http://gaspar.ovh
           - http://www.gaspar.ovh
           - http://leaderboard.dysnomia.studio/alchemistry/game/

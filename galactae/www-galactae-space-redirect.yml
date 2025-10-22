@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: www-galactae-space-redirect-ingressroute
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`www.galactae.space`)
+    kind: Rule
+    services:
+    - name: galactae-website-svc
+      port: 80
+    middlewares:
+      - name: www-galactae-space-redirect
+  tls:
+    certResolver: le
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: www-galactae-space-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://www\.galactae\.space(.*)$
+    replacement: https://galactae.eu${1}
+    permanent: true

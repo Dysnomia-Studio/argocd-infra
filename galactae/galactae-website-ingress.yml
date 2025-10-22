@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`galactae.com`) || Host(`www.galactae.com`) || Host(`galactae.eu`) || Host(`www.galactae.eu`) || Host(`galactae.space`) || Host(`www.galactae.space`)
+  - match: Host(`galactae.eu`)
     kind: Rule
     services:
     - name: galactae-website-svc
