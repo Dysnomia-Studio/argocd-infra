@@ -22,8 +22,8 @@ spec:
             cpu: 25m
             memory: 250Mi
           limits:
-            cpu: 1000m
-            memory: 500Mi
+            cpu: 2000m
+            memory: 2000Mi
         env:
           - name: Modules__EnedisModule__PERSON_NUMBER
             valueFrom:
