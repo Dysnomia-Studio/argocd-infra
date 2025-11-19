@@ -58,6 +58,11 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
+    directory: "/games-leaderboard"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
     directory: "/gaspar"
     registries: "*"
     schedule:
