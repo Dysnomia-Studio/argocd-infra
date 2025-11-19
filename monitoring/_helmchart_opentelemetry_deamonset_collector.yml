@@ -51,6 +51,8 @@ spec:
                 metric_expiration: 5m
                 enable_open_metrics: true
                 add_metric_suffixes: true
+              otlphttp:
+                endpoint: http://loki.monitoring.svc.cluster.local:3100/otlp
             service:
               pipelines:
                 traces:
@@ -62,13 +64,12 @@ spec:
                   receivers:
                     - otlp
                   exporters:
-                    - debug
                     - prometheus
                 logs:
                   receivers:
                     - otlp
                   exporters:
-                    - debug
+                    - otlphttp
           ports:
             otlp:
               enabled: true
