@@ -14,7 +14,7 @@ spec:
         app: games-leaderboard
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/games-leaderboard:1.5.2
+      - image: ghcr.io/dysnomia-studio/games-leaderboard:1.6.0
         name: games-leaderboard
         ports:
         - containerPort: 80
