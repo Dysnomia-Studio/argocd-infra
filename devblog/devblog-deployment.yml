@@ -14,7 +14,7 @@ spec:
         app: devblog
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/devblog:1.0.11
+      - image: ghcr.io/dysnomia-studio/devblog:1.0.12
         name: devblog
         ports:
         - containerPort: 80
