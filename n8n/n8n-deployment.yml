@@ -32,7 +32,7 @@ spec:
           - containerPort: 80
         env:
           - name: DB_SQLITE_POOL_SIZE
-            value: 1
+            value: '1'
           - name: GENERIC_TIMEZONE
             value: Europe/Paris
           - name: N8N_BLOCK_ENV_ACCESS_IN_NODE
