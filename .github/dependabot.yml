@@ -98,6 +98,11 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
+    directory: "/seafile"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
     directory: "/sonarqube"
     registries: "*"
     schedule:
