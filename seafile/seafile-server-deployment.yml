@@ -31,9 +31,9 @@ spec:
         ports:
           - containerPort: 80
         env:
-          - name: SEAFILE_MYSQL_DB_HOST
+          - name: DB_HOST
             value: seafile-mariadb.seafile.svc.cluster.local
-          - name: SEAFILE_MYSQL_DB_PASSWORD
+          - name: DB_ROOT_PASSWD
             valueFrom:
               secretKeyRef:
                 name: seafile-5464h59g97
