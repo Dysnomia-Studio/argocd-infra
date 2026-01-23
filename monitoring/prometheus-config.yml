@@ -467,8 +467,6 @@ data:
           - https://00-dev.galactae.eu
           - https://01-milkyway.galactae.eu
           - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
-          - https://achieve.games
-          - https://www.achieve.games
           - https://alchemistry-leaderboard.dysnomia.studio/leaderboard/
           - https://blog.dysnomia.studio
           - https://cdn.galactae.eu/website/img/flags/fr.png
@@ -502,6 +500,8 @@ data:
           - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - http://www.achieve.games
           - http://achieve.games
+          - https://achieve.games
+          - https://www.achieve.games
           - http://alchemistry-leaderboard.dysnomia.studio/leaderboard/
           - http://blog.dysnomia.studio
           - http://cdn.galactae.eu
