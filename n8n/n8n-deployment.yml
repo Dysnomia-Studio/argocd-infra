@@ -15,7 +15,7 @@ spec:
         app: n8n
     spec:
       containers:
-      - image: docker.n8n.io/n8nio/n8n:2.4.8
+      - image: docker.n8n.io/n8nio/n8n:2.9.4
         name: n8n
         imagePullPolicy: Always
         resources:
