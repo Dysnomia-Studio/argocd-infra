@@ -18,11 +18,6 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
-    directory: "/alchemistry-leaderboard"
-    registries: "*"
-    schedule:
-      interval: "monthly"
-  - package-ecosystem: "docker"
     directory: "/devblog"
     registries: "*"
     schedule:

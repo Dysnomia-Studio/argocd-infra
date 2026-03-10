@@ -11,9 +11,6 @@ spec:
       - name: 'achieve-games'
         env: prod
         visibility: public
-      - name: 'alchemistry-leaderboard'
-        env: prod
-        visibility: public
       - name: 'devblog'
         env: prod
         visibility: public
