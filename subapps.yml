@@ -11,6 +11,9 @@ spec:
       - name: 'achieve-games'
         env: prod
         visibility: public
+      - name: 'authentik'
+        env: all
+        visibility: public
       - name: 'devblog'
         env: prod
         visibility: public
