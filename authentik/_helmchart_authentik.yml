@@ -36,7 +36,7 @@ spec:
                     key: secret_key
 
               - name: AUTHENTIK_POSTGRESQL__HOST
-                value: authentik-database-rw.authentik-app.svc.cluster.local
+                value: "authentik-database-rw.authentik-app.svc.cluster.local"
               - name: AUTHENTIK_POSTGRESQL__PORT
                 valueFrom:
                   secretKeyRef:
@@ -58,7 +58,7 @@ spec:
                     name: authentik-database-app
                     key: dbname
               - name: AUTHENTIK_POSTGRESQL__SSLMODE
-                value: prefer
+                value: "prefer"
 
   destination:
     server: https://kubernetes.default.svc
