@@ -56,6 +56,8 @@ spec:
                   secretKeyRef:
                     name: authentik-database-app
                     key: dbname
+              - name: AUTHENTIK_POSTGRESQL__SSLMODE
+                value: prefer
 
   destination:
     server: https://kubernetes.default.svc
