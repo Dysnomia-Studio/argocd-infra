@@ -35,7 +35,7 @@ spec:
                     key: secret_key
 
               - name: AUTHENTIK_POSTGRESQL__HOST
-                value: authentik-app-database-rw.authentik-app.svc.cluster.local
+                value: authentik-database-rw.authentik-app.svc.cluster.local
               - name: AUTHENTIK_POSTGRESQL__PORT
                 valueFrom:
                   secretKeyRef:
