@@ -27,6 +27,7 @@ spec:
               hosts:
                 - sso.dysnomia.studio
 
+          global:
             env:
               - name: AUTHENTIK_SECRET_KEY
                 valueFrom:
