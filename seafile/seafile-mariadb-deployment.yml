@@ -15,7 +15,7 @@ spec:
         app: seafile-mariadb
     spec:
       containers:
-      - image: mariadb:11.5
+      - image: mariadb:12.2
         name: seafile-mariadb
         imagePullPolicy: Always
         volumeMounts:
