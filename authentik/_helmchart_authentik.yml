@@ -16,14 +16,16 @@ spec:
       helm:
         values: |
           authentik:
+            error_reporting:
+              enabled: false
             log_level: info
 
           server:
             ingress:
-                ingressClassName: traefik
-                enabled: true
-                hosts:
-                    - sso.dysnomia.studio
+              ingressClassName: traefik
+              enabled: true
+              hosts:
+                - sso.dysnomia.studio
 
             env:
               - name: AUTHENTIK_SECRET_KEY
