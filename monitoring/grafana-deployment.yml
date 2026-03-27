@@ -26,7 +26,7 @@ spec:
           - name: DS_FACTORY_USERNAME
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: username
                 optional: false
           - name: DS_FACTORY_HOST
@@ -36,14 +36,14 @@ spec:
           - name: DS_FACTORY_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: password
                 optional: false
 
           - name: DS_LUMEN_USERNAME
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: username
                 optional: false
           - name: DS_LUMEN_HOST
@@ -53,14 +53,14 @@ spec:
           - name: DS_LUMEN_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: password
                 optional: false
 
           - name: DS_REDMINE_USERNAME
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: username
                 optional: false
           - name: DS_REDMINE_HOST
@@ -70,9 +70,43 @@ spec:
           - name: DS_REDMINE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: grafana-bhc6hgmdk6
+                name: grafana-dk6hh79bb5
                 key: password
                 optional: false
+
+          # Oauth config
+          - name: GF_AUTH_GENERIC_OAUTH_ENABLED
+            value: "true"
+          - name: GF_AUTH_GENERIC_OAUTH_NAME
+            value: authentik
+          - name: GF_AUTH_GENERIC_OAUTH_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: grafana-dk6hh79bb5
+                key: oauthclientid
+                optional: false
+          - name: GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: grafana-dk6hh79bb5
+                key: oauthclientsecret
+                optional: false
+          - name: GF_AUTH_GENERIC_OAUTH_SCOPES
+            value: openid profile email
+          - name: GF_AUTH_GENERIC_OAUTH_AUTH_URL
+            value: https://sso.dysnomia.studio/application/o/authorize/
+          - name: GF_AUTH_GENERIC_OAUTH_TOKEN_URL
+            value: https://sso.dysnomia.studio/application/o/token/
+          - name: GF_AUTH_GENERIC_OAUTH_API_URL
+            value: https://sso.dysnomia.studio/application/o/userinfo/
+          - name: GF_AUTH_SIGNOUT_REDIRECT_URL
+            value: https://sso.dysnomia.studio/application/o/<application_slug>/end-session/
+          - name: GF_AUTH_OAUTH_AUTO_LOGIN
+            value: "true"
+          - name: GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH
+            value: "contains(groups[*], 'Grafana Admins') && 'Admin' || contains(groups[*], 'Grafana Editors') && 'Editor' || 'Viewer'"
+          - name: GF_SERVER_ROOT_URL
+            value: http://grafana.monitoring.svc.cluster.local
 
         imagePullPolicy: Always
         resources:
