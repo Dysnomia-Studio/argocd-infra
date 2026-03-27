@@ -23,7 +23,7 @@ spec:
                 ingressClassName: traefik
                 enabled: true
                 hosts:
-                    - authentik.dysnomia.studio
+                    - sso.dysnomia.studio
 
             env:
               - name: AUTHENTIK_SECRET_KEY
