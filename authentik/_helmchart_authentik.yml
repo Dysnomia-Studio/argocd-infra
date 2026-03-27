@@ -26,6 +26,8 @@ spec:
               enabled: true
               hosts:
                 - sso.dysnomia.studio
+              tls:
+                certResolver: le
 
           global:
             env:
