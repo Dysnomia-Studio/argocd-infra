@@ -16,7 +16,7 @@ spec:
       helm:
         values: |
           authentik:
-            log_level: debug
+            log_level: info
 
           server:
             ingress:
