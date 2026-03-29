@@ -47,9 +47,6 @@ data:
             description: Code quality
 
     - Websites:
-        - Achieve games:
-            href: https://achieve.games/
-            description: Achievements goes brrr
         - Dysnomia:
             href: https://dysnomia.studio
         - "Dysnomia's Wiki":
