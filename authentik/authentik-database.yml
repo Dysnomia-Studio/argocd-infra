@@ -23,4 +23,4 @@ spec:
       cpu: '2'
 
   storage:
-    size: 1Gi
+    size: 2Gi
