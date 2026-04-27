@@ -48,6 +48,9 @@ spec:
                 key: password
                 optional: false
 
+          - name: DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE
+            value: 'false'
+
           - name: NODE_IP
             valueFrom:
               fieldRef:

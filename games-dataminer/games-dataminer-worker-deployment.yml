@@ -55,8 +55,8 @@ spec:
                 key: webapi-key
                 optional: false
 
-          - name: ASPNETCORE_HTTP_PORTS
-            value: '80'
+          - name: DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE
+            value: 'false'
 
           - name: NODE_IP
             valueFrom:
