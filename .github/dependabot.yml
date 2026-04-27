@@ -53,6 +53,11 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
+    directory: "/games-dataminer"
+    registries: "*"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "docker"
     directory: "/games-leaderboard"
     registries: "*"
     schedule:

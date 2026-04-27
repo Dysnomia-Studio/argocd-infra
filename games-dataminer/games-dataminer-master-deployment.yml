@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: games-dataminer-master
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: games-dataminer-master
+  template:
+    metadata:
+      labels:
+        app: games-dataminer-master
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/games-dataminer-master:1.0.0
+        name: games-dataminer-master
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 25m
+            memory: 250Mi
+          limits:
+            cpu: 1000m
+            memory: 500Mi
+        env:
+          - name: PG_USER
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: username
+                optional: false
+          - name: PG_HOST
+            value: games-dataminer-database-rw.games-dataminer.svc.cluster.local
+          - name: PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: dbname
+                optional: false
+          - name: PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: password
+                optional: false
+
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://$(NODE_IP):4317
+      imagePullSecrets:
+      - name: github

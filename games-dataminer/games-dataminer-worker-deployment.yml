@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: games-dataminer-worker
+spec:
+  replicas: 3
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: games-dataminer-worker
+  template:
+    metadata:
+      labels:
+        app: games-dataminer-worker
+    spec:
+      containers:
+      - image: ghcr.io/dysnomia-studio/games-dataminer-worker:1.0.0
+        name: games-dataminer-worker
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 25m
+            memory: 250Mi
+          limits:
+            cpu: 1000m
+            memory: 500Mi
+        env:
+          - name: PG_USER
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: username
+                optional: false
+          - name: PG_HOST
+            value: games-dataminer-database-rw.games-dataminer.svc.cluster.local
+          - name: PG_DB
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: dbname
+                optional: false
+          - name: PG_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: games-dataminer-database-app
+                key: password
+                optional: false
+
+          - name: WEBAPI_KEY
+            valueFrom:
+              secretKeyRef:
+                name: steam-h6m8674f42
+                key: webapi-key
+                optional: false
+
+          - name: ASPNETCORE_HTTP_PORTS
+            value: '80'
+
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://$(NODE_IP):4317
+      imagePullSecrets:
+      - name: github
