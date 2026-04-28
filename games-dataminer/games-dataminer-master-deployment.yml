@@ -14,7 +14,7 @@ spec:
         app: games-dataminer-master
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/games-dataminer-master:1.0.8
+      - image: ghcr.io/dysnomia-studio/games-dataminer-master:1.0.9
         name: games-dataminer-master
         ports:
         - containerPort: 80
