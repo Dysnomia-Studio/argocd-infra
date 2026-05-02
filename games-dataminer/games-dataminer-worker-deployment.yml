@@ -14,7 +14,7 @@ spec:
         app: games-dataminer-worker
     spec:
       containers:
-      - image: ghcr.io/dysnomia-studio/games-dataminer-worker:1.0.11
+      - image: ghcr.io/dysnomia-studio/games-dataminer-worker:1.0.12
         name: games-dataminer-worker
         ports:
         - containerPort: 80
