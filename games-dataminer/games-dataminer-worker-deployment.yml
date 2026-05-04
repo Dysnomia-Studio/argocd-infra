@@ -25,7 +25,7 @@ spec:
             memory: 250Mi
           limits:
             cpu: 1000m
-            memory: 500Mi
+            memory: 750Mi
         env:
           - name: PG_USER
             valueFrom:
