@@ -109,6 +109,7 @@ spec:
           - name: OTEL_EXPORTER_OTLP_PROTOCOL
             value: grpc
 
-
+          - name: DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE
+            value: 'false'
       imagePullSecrets:
       - name: github
