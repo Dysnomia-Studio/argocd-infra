@@ -40,6 +40,24 @@ spec:
                 key: password
                 optional: false
 
+
+          - name: DS_GAMESDATAMINER_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: grafana-dk6hh79bb5
+                key: username
+                optional: false
+          - name: DS_GAMESDATAMINER_HOST
+            value: games-dataminer-database-ro.games-dataminer.svc.cluster.local
+          - name: DS_GAMESDATAMINER_DB
+            value: games-dataminer
+          - name: DS_GAMESDATAMINER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: grafana-dk6hh79bb5
+                key: password
+                optional: false
+
           - name: DS_LUMEN_USERNAME
             valueFrom:
               secretKeyRef:
