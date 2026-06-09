@@ -43,11 +43,6 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "docker"
-    directory: "/factory-server-ptb"
-    registries: "*"
-    schedule:
-      interval: "monthly"
-  - package-ecosystem: "docker"
     directory: "/galactae"
     registries: "*"
     schedule:

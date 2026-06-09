@@ -523,8 +523,6 @@ data:
           - http://gaspar.ovh
           - http://www.gaspar.ovh
           - http://leaderboard.dysnomia.studio/alchemistry/game/
-          - http://prd.manufacturinc.dysnomia.studio
-          - http://ptb.manufacturinc.dysnomia.studio
           - http://sonar.dysnomia.studio
           - http://wiki.dysnomia.studio
       relabel_configs:

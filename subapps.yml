@@ -29,12 +29,6 @@ spec:
       - name: 'elanis-cdn'
         env: prod
         visibility: public
-      - name: 'factory-server-prod'
-        env: prod
-        visibility: public
-      - name: 'factory-server-ptb'
-        env: public-test
-        visibility: public
       - name: 'galactae'
         env: all
         visibility: public
