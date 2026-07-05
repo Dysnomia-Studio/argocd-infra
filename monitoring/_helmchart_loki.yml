@@ -11,8 +11,8 @@ spec:
   project: default
   sources:
     - chart: loki
-      repoURL: https://grafana.github.io/helm-charts
-      targetRevision: 6.55.0
+      repoURL: https://grafana-community.github.io/helm-charts
+      targetRevision: 18.4.0
       helm:
         values: |
           loki:
@@ -41,7 +41,7 @@ spec:
           minio:
             enabled: false
                 
-          deploymentMode: SingleBinary
+          deploymentMode: Monolithic
 
           singleBinary:
             replicas: 1
