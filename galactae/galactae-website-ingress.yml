@@ -15,4 +15,4 @@ spec:
     middlewares:
       - name: security
   tls:
-    certResolver: le
+    secretName: galactae-website-tls-secret

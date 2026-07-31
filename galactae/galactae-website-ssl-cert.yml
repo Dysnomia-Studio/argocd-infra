@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: galactae-website-tls
+spec:
+  secretName: galactae-website-tls-secret
+  dnsNames:
+    - galactae.com
+    - galactae.eu
+    - galactae.space
+    - www.galactae.com
+    - www.galactae.eu
+    - www.galactae.space
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
