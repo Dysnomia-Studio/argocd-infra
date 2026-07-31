@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: games-leaderboard-tls
+spec:
+  secretName: games-leaderboard-tls-secret
+  dnsNames:
+    - leaderboard.dysnomia.studio
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
