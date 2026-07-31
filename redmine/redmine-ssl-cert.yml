@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: redmine-tls
+spec:
+  secretName: redmine-tls-secret
+  dnsNames:
+    - bugs.dysnomia.studio
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
