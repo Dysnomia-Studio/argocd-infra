@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: devblog-tls
+spec:
+  secretName: devblog-tls-secret
+  dnsNames:
+    - blog.dysnomia.studio
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
