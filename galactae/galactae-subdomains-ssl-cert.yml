@@ -1,9 +1,9 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: galactae-subdomains-tls
+  name: galactae-subdomains-tls-secret
 spec:
-  secretName: galactae-subdomains-tls-secret
+  secretName: galactae-subdomains-tls-secret-secret
   dnsNames:
     - cdn.galactae.eu
     - 00-dev.galactae.eu
