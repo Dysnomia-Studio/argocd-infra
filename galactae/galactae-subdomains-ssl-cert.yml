@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: galactae-subdomains-tls
+spec:
+  secretName: galactae-subdomains-tls-secret
+  dnsNames:
+    - cdn.galactae.eu
+    - 00-dev.galactae.eu
+    - 01-milkyway.galactae.eu
+    - 00-srv.galactae.eu
+    - 01-srv.galactae.eu
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
