@@ -14,4 +14,4 @@ spec:
     middlewares:
       - name: security
   tls:
-    certResolver: le
+    secretName: dysnomia-wiki-tls-secret

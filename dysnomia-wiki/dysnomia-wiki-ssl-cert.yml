@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dysnomia-wiki-tls
+spec:
+  secretName: dysnomia-wiki-tls-secret
+  dnsNames:
+    - wiki.dysnomia.studio
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
