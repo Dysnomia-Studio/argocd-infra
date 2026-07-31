@@ -29,10 +29,8 @@ spec:
               tls:
               - hosts:
                   - sso.dysnomia.studio
-                secretName: sso.dysnomia.studio-tls
+                secretName: authentik-tls-secret
               annotations:
-                traefik.ingress.kubernetes.io/router.tls: "true"
-                traefik.ingress.kubernetes.io/router.tls.certresolver: le
                 traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 
           global:
