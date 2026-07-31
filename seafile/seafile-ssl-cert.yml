@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: seafile-tls
+spec:
+  secretName: seafile-tls-secret
+  dnsNames:
+    - cloud.dysnomia.studio
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
