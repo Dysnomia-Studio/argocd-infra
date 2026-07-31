@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: portfolio-tls
+spec:
+  secretName: portfolio-tls-secret
+  dnsNames:
+    - elanis.fr
+    - elanis.eu
+    - www.elanis.fr
+    - www.elanis.eu
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
