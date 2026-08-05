@@ -7,6 +7,10 @@ registries:
     username: ${{ secrets.GHP_USER }}
     password: ${{ secrets.GHP_TOKEN }}
 updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
   - package-ecosystem: "docker"
     directory: "/"
     registries: "*"
