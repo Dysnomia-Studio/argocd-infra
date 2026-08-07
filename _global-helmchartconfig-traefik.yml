@@ -1,0 +1,84 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |- #Using examples from https://github.com/k3s-io/k3s-charts/blob/main/charts/traefik/40.1.3%2Bup40.1.0/EXAMPLES.md
+    updateStrategy:
+      rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 0
+
+    podSecurityContext:
+      runAsGroup: 65532
+      runAsNonRoot: false
+      runAsUser: 65532
+      seccompProfile:
+        type: RuntimeDefault
+
+    ports:
+      web:
+        port: 80
+        containerPort: 80
+        hostPort: 80
+      websecure:
+        port: 443
+        containerPort: 443
+        hostPort: 443
+
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 65532
+      allowPrivilegeEscalation: true
+      capabilities:
+        drop: [ALL]
+        add: [NET_BIND_SERVICE]
+
+    hostNetwork: true
+
+    service:
+      enabled: false
+
+    deployment:
+      kind: DaemonSet
+      initContainers:
+        - name: copy-binary
+          image: traefik:v3.7.4
+          command: ["cp", "/usr/local/bin/traefik", "/shared/traefik"]
+          volumeMounts:
+            - name: traefik-bin
+              mountPath: /shared
+        - name: setcap
+          image: alpine:3.21
+          command:
+            - sh
+            - -c
+            - apk add --no-cache libcap && setcap cap_net_bind_service=+ep /shared/traefik
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          volumeMounts:
+            - name: traefik-bin
+              mountPath: /shared
+      additionalVolumes:
+        - name: traefik-bin
+          emptyDir: {}
+
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+
+    additionalVolumeMounts:
+      - name: traefik-bin
+        mountPath: /usr/local/bin
+    additionalArguments:
+      - "--log.level=DEBUG"
+      - "--providers.kubernetescrd.allowCrossNamespace=true"
+      - "--experimental.otlpLogs=true"
+      - "--accesslog.otlp.http.endpoint=http://192.168.1.6:4318/v1/logs"
+      - "--entryPoints.websecure.http.middlewares=dysnomia-apps-http-compress@kubernetescrd"
