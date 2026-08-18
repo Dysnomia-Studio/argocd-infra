@@ -7,7 +7,7 @@ spec:
   rateLimit:
     average: 15
     period: 1s
-    burst: 50
+    burst: 100
     sourceCriterion:
       ipStrategy:
         depth: 1
