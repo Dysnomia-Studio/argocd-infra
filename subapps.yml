@@ -8,9 +8,6 @@ spec:
   generators:
   - list:
       elements:
-      - name: 'achieve-games'
-        env: prod
-        visibility: public
       - name: 'authentik'
         env: all
         visibility: public
