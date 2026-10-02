@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: games-dataminer-worker
 spec:
-  replicas: 6
+  replicas: 3
   revisionHistoryLimit: 1
   selector:
     matchLabels:
