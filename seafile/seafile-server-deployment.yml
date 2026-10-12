@@ -36,27 +36,27 @@ spec:
           - name: DB_ROOT_PASSWD
             valueFrom:
               secretKeyRef:
-                name: seafile-5464h59g97
-                key: mysql-password
+                name: seafile-74d2bd5mtb
+                key: mysql-root-password
                 optional: false
           - name: TIME_ZONE
             value: Europe/Paris
           - name: SEAFILE_ADMIN_EMAIL
             valueFrom:
               secretKeyRef:
-                name: seafile-5464h59g97
+                name: seafile-74d2bd5mtb
                 key: admin-mail
                 optional: false
           - name: SEAFILE_ADMIN_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-5464h59g97
+                name: seafile-74d2bd5mtb
                 key: admin-password
                 optional: false
           - name: JWT_PRIVATE_KEY
             valueFrom:
               secretKeyRef:
-                name: seafile-5464h59g97
+                name: seafile-74d2bd5mtb
                 key: jwt-private-key
                 optional: false
           - name: SEAFILE_SERVER_PROTOCOL
@@ -72,7 +72,7 @@ spec:
           - name: SEAFILE_MYSQL_DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-5464h59g97
+                name: seafile-74d2bd5mtb
                 key: mysql-password
                 optional: false
           - name: SEAFILE_MYSQL_DB_CCNET_DB_NAME
