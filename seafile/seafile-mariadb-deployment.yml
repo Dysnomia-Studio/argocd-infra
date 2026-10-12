@@ -34,8 +34,8 @@ spec:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-777kg4k255
-                key: mysql-password
+                name: seafile-t67h68f6gt
+                key: mysql-root-password
                 optional: false
           - name: MYSQL_LOG_CONSOLE
             value: "true"

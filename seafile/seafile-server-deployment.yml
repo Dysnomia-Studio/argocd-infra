@@ -36,7 +36,7 @@ spec:
           - name: DB_ROOT_PASSWD
             valueFrom:
               secretKeyRef:
-                name: seafile-74d2bd5mtb
+                name: seafile-t67h68f6gt
                 key: mysql-root-password
                 optional: false
           - name: TIME_ZONE
@@ -44,19 +44,19 @@ spec:
           - name: SEAFILE_ADMIN_EMAIL
             valueFrom:
               secretKeyRef:
-                name: seafile-74d2bd5mtb
+                name: seafile-t67h68f6gt
                 key: admin-mail
                 optional: false
           - name: SEAFILE_ADMIN_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-74d2bd5mtb
+                name: seafile-t67h68f6gt
                 key: admin-password
                 optional: false
           - name: JWT_PRIVATE_KEY
             valueFrom:
               secretKeyRef:
-                name: seafile-74d2bd5mtb
+                name: seafile-t67h68f6gt
                 key: jwt-private-key
                 optional: false
           - name: SEAFILE_SERVER_PROTOCOL
@@ -72,7 +72,7 @@ spec:
           - name: SEAFILE_MYSQL_DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: seafile-74d2bd5mtb
+                name: seafile-t67h68f6gt
                 key: mysql-password
                 optional: false
           - name: SEAFILE_MYSQL_DB_CCNET_DB_NAME
@@ -81,6 +81,18 @@ spec:
             value: seafile_db
           - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
             value: seahub_db
+          - name: CACHE_PROVIDER
+            value: redis
+          - name: REDIS_HOST
+            value: seafile-redis.seafile.svc.cluster.local
+          - name: REDIS_PORT
+            value: '6379'
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: seafile-t67h68f6gt
+                key: redis-password
+                optional: false
 
       volumes:
       - name: data

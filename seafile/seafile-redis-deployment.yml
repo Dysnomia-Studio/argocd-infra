@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seafile-redis
+  namespace: seafile
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: seafile-redis
+  template:
+    metadata:
+      labels:
+        app: seafile-redis
+    spec:
+      containers:
+      - image: redis:8.10.2
+        name: seafile-redis
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: 25m
+            memory: 200Mi
+          limits:
+            cpu: 1000m
+            memory: 1G        
+        env:
+          - name: REDIS_ARGS
+            valueFrom:
+              secretKeyRef:
+                name: seafile-t67h68f6gt
+                key: redis-args
+                optional: false
