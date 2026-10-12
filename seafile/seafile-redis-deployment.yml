@@ -27,10 +27,3 @@ spec:
           limits:
             cpu: 1000m
             memory: 1G        
-        env:
-          - name: REDIS_ARGS
-            valueFrom:
-              secretKeyRef:
-                name: seafile-t67h68f6gt
-                key: redis-args
-                optional: false

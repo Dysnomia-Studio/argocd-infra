@@ -87,12 +87,6 @@ spec:
             value: seafile-redis.seafile.svc.cluster.local
           - name: REDIS_PORT
             value: '6379'
-          - name: REDIS_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: seafile-t67h68f6gt
-                key: redis-password
-                optional: false
 
       volumes:
       - name: data
