@@ -59,7 +59,28 @@ spec:
                 name: seafile-5464h59g97
                 key: jwt-private-key
                 optional: false
-
+          - name: SEAFILE_SERVER_PROTOCOL
+            value: https
+          - name: SEAFILE_SERVER_HOSTNAME
+            value: cloud.dysnomia.studio
+          - name: SEAFILE_MYSQL_DB_HOST
+            value: seafile-mariadb.seafile.svc.cluster.local
+          - name: SEAFILE_MYSQL_DB_PORT
+            value: 3306
+          - name: SEAFILE_MYSQL_DB_USER
+            value: seafile
+          - name: SEAFILE_MYSQL_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: seafile-5464h59g97
+                key: mysql-password
+                optional: false
+          - name: SEAFILE_MYSQL_DB_CCNET_DB_NAME
+            value: ccnet_db
+          - name: SEAFILE_MYSQL_DB_SEAFILE_DB_NAME
+            value: seafile_db
+          - name: SEAFILE_MYSQL_DB_SEAHUB_DB_NAME
+            value: seahub_db
 
       volumes:
       - name: data
