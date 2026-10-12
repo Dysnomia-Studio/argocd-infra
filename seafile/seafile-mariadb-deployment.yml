@@ -39,6 +39,8 @@ spec:
                 optional: false
           - name: MYSQL_LOG_CONSOLE
             value: "true"
+          - name: MARIADB_AUTO_UPGRADE
+            value: "true"
 
       volumes:
       - name: data
