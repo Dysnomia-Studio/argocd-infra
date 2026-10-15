@@ -48,7 +48,7 @@ spec:
                 key: username
                 optional: false
           - name: DS_GAMESDATAMINER_HOST
-            value: games-dataminer-database-ro.games-dataminer.svc.cluster.local
+            value: games-dataminer-database-rw.games-dataminer.svc.cluster.local
           - name: DS_GAMESDATAMINER_DB
             value: games-dataminer
           - name: DS_GAMESDATAMINER_PASSWORD
