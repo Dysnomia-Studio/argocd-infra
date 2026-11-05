@@ -13,6 +13,7 @@ spec:
         values: |
           configuration:
             lockReleaseDelay: 4h
+            drainPodSelector: "app.kubernetes.io/component!=database,longhorn.io/managed-by!=longhorn-manager"
   destination:
     server: https://kubernetes.default.svc
     namespace: default
