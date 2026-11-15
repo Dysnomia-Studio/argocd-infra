@@ -15,7 +15,7 @@ spec:
         app: seafile-redis
     spec:
       containers:
-      - image: redis:8.10.2
+      - image: redis:8.10.3
         name: seafile-redis
         imagePullPolicy: Always
         ports:
