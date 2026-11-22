@@ -469,16 +469,12 @@ data:
         module: [http_2xx]
       static_configs:
        - targets:
-          - https://00-dev.galactae.eu
-          - https://01-milkyway.galactae.eu
           - https://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - https://blog.dysnomia.studio
-          - https://cdn.galactae.eu/website/img/flags/fr.png
           - https://cloud.dysnomia.studio/media/favicons/favicon.png
           - https://dysnomia.studio
           - https://www.dysnomia.studio
           - https://elanis.eu
-          - https://galactae.eu
           - https://gaspar.ovh
           - https://www.gaspar.ovh
           - https://leaderboard.dysnomia.studio/alchemistry/game/
@@ -499,11 +495,8 @@ data:
         module: [http_301]
       static_configs:
        - targets:
-          - http://00-dev.galactae.eu
-          - http://01-milkyway.galactae.eu
           - http://01.cdn.elanis.eu/portfolio/img/Elanis.png
           - http://blog.dysnomia.studio
-          - http://cdn.galactae.eu
           - http://cloud.dysnomia.studio
           - http://dysnomia.studio
           - http://www.dysnomia.studio
@@ -514,17 +507,6 @@ data:
           - https://elanis.fr
           - http://www.elanis.fr
           - https://www.elanis.fr
-          - http://galactae.com
-          - https://galactae.com
-          - http://www.galactae.com
-          - https://www.galactae.com
-          - http://galactae.eu
-          - http://www.galactae.eu
-          - https://www.galactae.eu
-          - http://galactae.space
-          - https://galactae.space
-          - http://www.galactae.space
-          - https://www.galactae.space
           - http://gaspar.ovh
           - http://www.gaspar.ovh
           - http://leaderboard.dysnomia.studio/alchemistry/game/
