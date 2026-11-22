@@ -12,7 +12,7 @@ spec:
   sources:
     - chart: loki
       repoURL: https://grafana-community.github.io/helm-charts
-      targetRevision: 18.13.0
+      targetRevision: 21.4.3
       helm:
         values: |
           loki:
@@ -37,9 +37,6 @@ spec:
             ruler:
               enable_api: true
             auth_enabled: false
-
-          minio:
-            enabled: false
                 
           deploymentMode: Monolithic
 
