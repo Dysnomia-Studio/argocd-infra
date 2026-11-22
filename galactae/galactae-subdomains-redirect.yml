@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: galactae-subdomains-redirect
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`*.galactae.eu`)
+    kind: Rule
+    services:
+    - name: galactae-website-svc
+      port: 80
+    middlewares:
+      - name: galactae-subdomains-redirect
+  tls:
+    secretName: galactae-subdomains-tls-secret
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: galactae-subdomains-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://(.*).galactae\.eu(.*)$
+    replacement: https://dysnomia.studio
+    permanent: true

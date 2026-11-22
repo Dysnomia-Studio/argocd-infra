@@ -23,5 +23,5 @@ metadata:
 spec:
   redirectRegex:
     regex: ^https?://galactae\.space(.*)$
-    replacement: https://galactae.eu${1}
+    replacement: https://dysnomia.studio
     permanent: true

@@ -16,3 +16,31 @@ spec:
       - name: security
   tls:
     secretName: galactae-website-tls-secret
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: galactae-website-redirect
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`galactae.eu`)
+    kind: Rule
+    services:
+    - name: galactae-website-svc
+      port: 80
+    middlewares:
+      - name: galactae-website-redirect
+  tls:
+    secretName: galactae-website-tls-secret
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: galactae-website-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://galactae\.eu(.*)$
+    replacement: https://dysnomia.studio
+    permanent: true
