@@ -5,9 +5,9 @@ metadata:
   name: rate-limit
 spec:
   rateLimit:
-    average: 15
+    average: 20
     period: 1s
-    burst: 100
+    burst: 125
     sourceCriterion:
       ipStrategy:
         depth: 1
